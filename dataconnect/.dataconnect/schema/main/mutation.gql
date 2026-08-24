@@ -1,0 +1,1914 @@
+extend type Mutation {
+  """
+  ✨ Insert a single `Abonnement` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  abonnement_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Abonnement_Data!
+  ): Abonnement_KeyOutput! @fdc_generated(from: "Abonnement", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Alerte` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  alerte_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Alerte_Data!
+  ): Alerte_KeyOutput! @fdc_generated(from: "Alerte", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Commune` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  commune_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Commune_Data!
+  ): Commune_KeyOutput! @fdc_generated(from: "Commune", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `DocumentParcelle` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  documentParcelle_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: DocumentParcelle_Data!
+  ): DocumentParcelle_KeyOutput! @fdc_generated(from: "DocumentParcelle", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `FraisEnregistrement` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  fraisEnregistrement_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: FraisEnregistrement_Data!
+  ): FraisEnregistrement_KeyOutput! @fdc_generated(from: "FraisEnregistrement", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `JournalAudit` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  journalAudit_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: JournalAudit_Data!
+  ): JournalAudit_KeyOutput! @fdc_generated(from: "JournalAudit", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Litige` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  litige_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Litige_Data!
+  ): Litige_KeyOutput! @fdc_generated(from: "Litige", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Paiement` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  paiement_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Paiement_Data!
+  ): Paiement_KeyOutput! @fdc_generated(from: "Paiement", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Parcelle` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  parcelle_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Parcelle_Data!
+  ): Parcelle_KeyOutput! @fdc_generated(from: "Parcelle", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Region` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  region_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Region_Data!
+  ): Region_KeyOutput! @fdc_generated(from: "Region", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `SousPrefecture` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  sousPrefecture_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: SousPrefecture_Data!
+  ): SousPrefecture_KeyOutput! @fdc_generated(from: "SousPrefecture", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `SuiviVisuel` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  suiviVisuel_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: SuiviVisuel_Data!
+  ): SuiviVisuel_KeyOutput! @fdc_generated(from: "SuiviVisuel", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `TaxeFonciere` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  taxeFonciere_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: TaxeFonciere_Data!
+  ): TaxeFonciere_KeyOutput! @fdc_generated(from: "TaxeFonciere", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `TransactionFonciere` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  transactionFonciere_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: TransactionFonciere_Data!
+  ): TransactionFonciere_KeyOutput! @fdc_generated(from: "TransactionFonciere", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Utilisateur` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  utilisateur_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Utilisateur_Data!
+  ): Utilisateur_KeyOutput! @fdc_generated(from: "Utilisateur", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `UtilisateurRole` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  utilisateurRole_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: UtilisateurRole_Data!
+  ): UtilisateurRole_KeyOutput! @fdc_generated(from: "UtilisateurRole", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert `Abonnement` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  abonnement_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Abonnement_Data!]!
+  ): [Abonnement_KeyOutput!]! @fdc_generated(from: "Abonnement", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Alerte` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  alerte_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Alerte_Data!]!
+  ): [Alerte_KeyOutput!]! @fdc_generated(from: "Alerte", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Commune` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  commune_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Commune_Data!]!
+  ): [Commune_KeyOutput!]! @fdc_generated(from: "Commune", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `DocumentParcelle` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  documentParcelle_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [DocumentParcelle_Data!]!
+  ): [DocumentParcelle_KeyOutput!]! @fdc_generated(from: "DocumentParcelle", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `FraisEnregistrement` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  fraisEnregistrement_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [FraisEnregistrement_Data!]!
+  ): [FraisEnregistrement_KeyOutput!]! @fdc_generated(from: "FraisEnregistrement", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `JournalAudit` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  journalAudit_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [JournalAudit_Data!]!
+  ): [JournalAudit_KeyOutput!]! @fdc_generated(from: "JournalAudit", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Litige` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  litige_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Litige_Data!]!
+  ): [Litige_KeyOutput!]! @fdc_generated(from: "Litige", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Paiement` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  paiement_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Paiement_Data!]!
+  ): [Paiement_KeyOutput!]! @fdc_generated(from: "Paiement", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Parcelle` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  parcelle_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Parcelle_Data!]!
+  ): [Parcelle_KeyOutput!]! @fdc_generated(from: "Parcelle", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Region` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  region_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Region_Data!]!
+  ): [Region_KeyOutput!]! @fdc_generated(from: "Region", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `SousPrefecture` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  sousPrefecture_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [SousPrefecture_Data!]!
+  ): [SousPrefecture_KeyOutput!]! @fdc_generated(from: "SousPrefecture", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `SuiviVisuel` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  suiviVisuel_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [SuiviVisuel_Data!]!
+  ): [SuiviVisuel_KeyOutput!]! @fdc_generated(from: "SuiviVisuel", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `TaxeFonciere` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  taxeFonciere_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [TaxeFonciere_Data!]!
+  ): [TaxeFonciere_KeyOutput!]! @fdc_generated(from: "TaxeFonciere", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `TransactionFonciere` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  transactionFonciere_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [TransactionFonciere_Data!]!
+  ): [TransactionFonciere_KeyOutput!]! @fdc_generated(from: "TransactionFonciere", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Utilisateur` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  utilisateur_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Utilisateur_Data!]!
+  ): [Utilisateur_KeyOutput!]! @fdc_generated(from: "Utilisateur", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `UtilisateurRole` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  utilisateurRole_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [UtilisateurRole_Data!]!
+  ): [UtilisateurRole_KeyOutput!]! @fdc_generated(from: "UtilisateurRole", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert or update a single `Abonnement` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Abonnement`.
+  """
+  abonnement_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Abonnement_Data!
+  ): Abonnement_KeyOutput! @fdc_generated(from: "Abonnement", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Alerte` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Alerte`.
+  """
+  alerte_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Alerte_Data!
+  ): Alerte_KeyOutput! @fdc_generated(from: "Alerte", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Commune` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Commune`.
+  """
+  commune_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Commune_Data!
+  ): Commune_KeyOutput! @fdc_generated(from: "Commune", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `DocumentParcelle` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `DocumentParcelle`.
+  """
+  documentParcelle_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: DocumentParcelle_Data!
+  ): DocumentParcelle_KeyOutput! @fdc_generated(from: "DocumentParcelle", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `FraisEnregistrement` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `FraisEnregistrement`.
+  """
+  fraisEnregistrement_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: FraisEnregistrement_Data!
+  ): FraisEnregistrement_KeyOutput! @fdc_generated(from: "FraisEnregistrement", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `JournalAudit` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `JournalAudit`.
+  """
+  journalAudit_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: JournalAudit_Data!
+  ): JournalAudit_KeyOutput! @fdc_generated(from: "JournalAudit", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Litige` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Litige`.
+  """
+  litige_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Litige_Data!
+  ): Litige_KeyOutput! @fdc_generated(from: "Litige", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Paiement` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Paiement`.
+  """
+  paiement_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Paiement_Data!
+  ): Paiement_KeyOutput! @fdc_generated(from: "Paiement", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Parcelle` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Parcelle`.
+  """
+  parcelle_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Parcelle_Data!
+  ): Parcelle_KeyOutput! @fdc_generated(from: "Parcelle", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Region` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Region`.
+  """
+  region_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Region_Data!
+  ): Region_KeyOutput! @fdc_generated(from: "Region", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `SousPrefecture` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `SousPrefecture`.
+  """
+  sousPrefecture_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: SousPrefecture_Data!
+  ): SousPrefecture_KeyOutput! @fdc_generated(from: "SousPrefecture", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `SuiviVisuel` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `SuiviVisuel`.
+  """
+  suiviVisuel_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: SuiviVisuel_Data!
+  ): SuiviVisuel_KeyOutput! @fdc_generated(from: "SuiviVisuel", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `TaxeFonciere` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `TaxeFonciere`.
+  """
+  taxeFonciere_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: TaxeFonciere_Data!
+  ): TaxeFonciere_KeyOutput! @fdc_generated(from: "TaxeFonciere", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `TransactionFonciere` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `TransactionFonciere`.
+  """
+  transactionFonciere_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: TransactionFonciere_Data!
+  ): TransactionFonciere_KeyOutput! @fdc_generated(from: "TransactionFonciere", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Utilisateur` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Utilisateur`.
+  """
+  utilisateur_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Utilisateur_Data!
+  ): Utilisateur_KeyOutput! @fdc_generated(from: "Utilisateur", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `UtilisateurRole` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `UtilisateurRole`.
+  """
+  utilisateurRole_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: UtilisateurRole_Data!
+  ): UtilisateurRole_KeyOutput! @fdc_generated(from: "UtilisateurRole", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update `Abonnement` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Abonnement`.
+  """
+  abonnement_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Abonnement_Data!]!
+  ): [Abonnement_KeyOutput!]! @fdc_generated(from: "Abonnement", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Alerte` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Alerte`.
+  """
+  alerte_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Alerte_Data!]!
+  ): [Alerte_KeyOutput!]! @fdc_generated(from: "Alerte", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Commune` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Commune`.
+  """
+  commune_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Commune_Data!]!
+  ): [Commune_KeyOutput!]! @fdc_generated(from: "Commune", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `DocumentParcelle` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `DocumentParcelle`.
+  """
+  documentParcelle_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [DocumentParcelle_Data!]!
+  ): [DocumentParcelle_KeyOutput!]! @fdc_generated(from: "DocumentParcelle", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `FraisEnregistrement` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `FraisEnregistrement`.
+  """
+  fraisEnregistrement_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [FraisEnregistrement_Data!]!
+  ): [FraisEnregistrement_KeyOutput!]! @fdc_generated(from: "FraisEnregistrement", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `JournalAudit` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `JournalAudit`.
+  """
+  journalAudit_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [JournalAudit_Data!]!
+  ): [JournalAudit_KeyOutput!]! @fdc_generated(from: "JournalAudit", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Litige` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Litige`.
+  """
+  litige_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Litige_Data!]!
+  ): [Litige_KeyOutput!]! @fdc_generated(from: "Litige", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Paiement` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Paiement`.
+  """
+  paiement_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Paiement_Data!]!
+  ): [Paiement_KeyOutput!]! @fdc_generated(from: "Paiement", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Parcelle` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Parcelle`.
+  """
+  parcelle_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Parcelle_Data!]!
+  ): [Parcelle_KeyOutput!]! @fdc_generated(from: "Parcelle", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Region` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Region`.
+  """
+  region_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Region_Data!]!
+  ): [Region_KeyOutput!]! @fdc_generated(from: "Region", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `SousPrefecture` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `SousPrefecture`.
+  """
+  sousPrefecture_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [SousPrefecture_Data!]!
+  ): [SousPrefecture_KeyOutput!]! @fdc_generated(from: "SousPrefecture", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `SuiviVisuel` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `SuiviVisuel`.
+  """
+  suiviVisuel_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [SuiviVisuel_Data!]!
+  ): [SuiviVisuel_KeyOutput!]! @fdc_generated(from: "SuiviVisuel", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `TaxeFonciere` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `TaxeFonciere`.
+  """
+  taxeFonciere_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [TaxeFonciere_Data!]!
+  ): [TaxeFonciere_KeyOutput!]! @fdc_generated(from: "TaxeFonciere", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `TransactionFonciere` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `TransactionFonciere`.
+  """
+  transactionFonciere_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [TransactionFonciere_Data!]!
+  ): [TransactionFonciere_KeyOutput!]! @fdc_generated(from: "TransactionFonciere", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Utilisateur` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Utilisateur`.
+  """
+  utilisateur_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Utilisateur_Data!]!
+  ): [Utilisateur_KeyOutput!]! @fdc_generated(from: "Utilisateur", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `UtilisateurRole` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `UtilisateurRole`.
+  """
+  utilisateurRole_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [UtilisateurRole_Data!]!
+  ): [UtilisateurRole_KeyOutput!]! @fdc_generated(from: "UtilisateurRole", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Update a single `Abonnement` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Abonnement` or `null` if not found.
+  """
+  abonnement_update(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: Abonnement_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Abonnement_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Abonnement_Data!
+  ): Abonnement_KeyOutput @fdc_generated(from: "Abonnement", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Alerte` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Alerte` or `null` if not found.
+  """
+  alerte_update(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: Alerte_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Alerte_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Alerte_Data!
+  ): Alerte_KeyOutput @fdc_generated(from: "Alerte", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Commune` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Commune` or `null` if not found.
+  """
+  commune_update(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: Commune_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Commune_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Commune_Data!
+  ): Commune_KeyOutput @fdc_generated(from: "Commune", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `DocumentParcelle` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `DocumentParcelle` or `null` if not found.
+  """
+  documentParcelle_update(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: DocumentParcelle_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: DocumentParcelle_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: DocumentParcelle_Data!
+  ): DocumentParcelle_KeyOutput @fdc_generated(from: "DocumentParcelle", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `FraisEnregistrement` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `FraisEnregistrement` or `null` if not found.
+  """
+  fraisEnregistrement_update(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: FraisEnregistrement_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: FraisEnregistrement_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: FraisEnregistrement_Data!
+  ): FraisEnregistrement_KeyOutput @fdc_generated(from: "FraisEnregistrement", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `JournalAudit` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `JournalAudit` or `null` if not found.
+  """
+  journalAudit_update(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: JournalAudit_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: JournalAudit_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: JournalAudit_Data!
+  ): JournalAudit_KeyOutput @fdc_generated(from: "JournalAudit", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Litige` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Litige` or `null` if not found.
+  """
+  litige_update(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: Litige_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Litige_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Litige_Data!
+  ): Litige_KeyOutput @fdc_generated(from: "Litige", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Paiement` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Paiement` or `null` if not found.
+  """
+  paiement_update(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: Paiement_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Paiement_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Paiement_Data!
+  ): Paiement_KeyOutput @fdc_generated(from: "Paiement", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Parcelle` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Parcelle` or `null` if not found.
+  """
+  parcelle_update(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: Parcelle_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Parcelle_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Parcelle_Data!
+  ): Parcelle_KeyOutput @fdc_generated(from: "Parcelle", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Region` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Region` or `null` if not found.
+  """
+  region_update(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: Region_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Region_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Region_Data!
+  ): Region_KeyOutput @fdc_generated(from: "Region", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `SousPrefecture` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `SousPrefecture` or `null` if not found.
+  """
+  sousPrefecture_update(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: SousPrefecture_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: SousPrefecture_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: SousPrefecture_Data!
+  ): SousPrefecture_KeyOutput @fdc_generated(from: "SousPrefecture", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `SuiviVisuel` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `SuiviVisuel` or `null` if not found.
+  """
+  suiviVisuel_update(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: SuiviVisuel_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: SuiviVisuel_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: SuiviVisuel_Data!
+  ): SuiviVisuel_KeyOutput @fdc_generated(from: "SuiviVisuel", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `TaxeFonciere` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `TaxeFonciere` or `null` if not found.
+  """
+  taxeFonciere_update(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: TaxeFonciere_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: TaxeFonciere_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: TaxeFonciere_Data!
+  ): TaxeFonciere_KeyOutput @fdc_generated(from: "TaxeFonciere", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `TransactionFonciere` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `TransactionFonciere` or `null` if not found.
+  """
+  transactionFonciere_update(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: TransactionFonciere_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: TransactionFonciere_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: TransactionFonciere_Data!
+  ): TransactionFonciere_KeyOutput @fdc_generated(from: "TransactionFonciere", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Utilisateur` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Utilisateur` or `null` if not found.
+  """
+  utilisateur_update(
+    """
+    The key used to identify the object.
+    """
+    key: Utilisateur_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Utilisateur_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Utilisateur_Data!
+  ): Utilisateur_KeyOutput @fdc_generated(from: "Utilisateur", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `UtilisateurRole` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `UtilisateurRole` or `null` if not found.
+  """
+  utilisateurRole_update(
+    """
+    The key used to identify the object.
+    """
+    key: UtilisateurRole_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: UtilisateurRole_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: UtilisateurRole_Data!
+  ): UtilisateurRole_KeyOutput @fdc_generated(from: "UtilisateurRole", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update `Abonnement` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  abonnement_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Abonnement_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Abonnement_Data!
+  ): Int! @fdc_generated(from: "Abonnement", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Alerte` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  alerte_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Alerte_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Alerte_Data!
+  ): Int! @fdc_generated(from: "Alerte", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Commune` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  commune_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Commune_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Commune_Data!
+  ): Int! @fdc_generated(from: "Commune", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `DocumentParcelle` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  documentParcelle_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: DocumentParcelle_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: DocumentParcelle_Data!
+  ): Int! @fdc_generated(from: "DocumentParcelle", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `FraisEnregistrement` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  fraisEnregistrement_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: FraisEnregistrement_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: FraisEnregistrement_Data!
+  ): Int! @fdc_generated(from: "FraisEnregistrement", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `JournalAudit` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  journalAudit_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: JournalAudit_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: JournalAudit_Data!
+  ): Int! @fdc_generated(from: "JournalAudit", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Litige` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  litige_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Litige_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Litige_Data!
+  ): Int! @fdc_generated(from: "Litige", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Paiement` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  paiement_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Paiement_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Paiement_Data!
+  ): Int! @fdc_generated(from: "Paiement", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Parcelle` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  parcelle_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Parcelle_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Parcelle_Data!
+  ): Int! @fdc_generated(from: "Parcelle", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Region` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  region_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Region_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Region_Data!
+  ): Int! @fdc_generated(from: "Region", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `SousPrefecture` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  sousPrefecture_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: SousPrefecture_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: SousPrefecture_Data!
+  ): Int! @fdc_generated(from: "SousPrefecture", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `SuiviVisuel` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  suiviVisuel_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: SuiviVisuel_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: SuiviVisuel_Data!
+  ): Int! @fdc_generated(from: "SuiviVisuel", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `TaxeFonciere` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  taxeFonciere_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: TaxeFonciere_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: TaxeFonciere_Data!
+  ): Int! @fdc_generated(from: "TaxeFonciere", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `TransactionFonciere` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  transactionFonciere_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: TransactionFonciere_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: TransactionFonciere_Data!
+  ): Int! @fdc_generated(from: "TransactionFonciere", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Utilisateur` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  utilisateur_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Utilisateur_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Utilisateur_Data!
+  ): Int! @fdc_generated(from: "Utilisateur", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `UtilisateurRole` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  utilisateurRole_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: UtilisateurRole_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: UtilisateurRole_Data!
+  ): Int! @fdc_generated(from: "UtilisateurRole", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Delete a single `Abonnement` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  abonnement_delete(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: Abonnement_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Abonnement_FirstRow
+  ): Abonnement_KeyOutput @fdc_generated(from: "Abonnement", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Alerte` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  alerte_delete(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: Alerte_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Alerte_FirstRow
+  ): Alerte_KeyOutput @fdc_generated(from: "Alerte", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Commune` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  commune_delete(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: Commune_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Commune_FirstRow
+  ): Commune_KeyOutput @fdc_generated(from: "Commune", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `DocumentParcelle` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  documentParcelle_delete(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: DocumentParcelle_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: DocumentParcelle_FirstRow
+  ): DocumentParcelle_KeyOutput @fdc_generated(from: "DocumentParcelle", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `FraisEnregistrement` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  fraisEnregistrement_delete(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: FraisEnregistrement_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: FraisEnregistrement_FirstRow
+  ): FraisEnregistrement_KeyOutput @fdc_generated(from: "FraisEnregistrement", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `JournalAudit` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  journalAudit_delete(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: JournalAudit_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: JournalAudit_FirstRow
+  ): JournalAudit_KeyOutput @fdc_generated(from: "JournalAudit", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Litige` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  litige_delete(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: Litige_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Litige_FirstRow
+  ): Litige_KeyOutput @fdc_generated(from: "Litige", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Paiement` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  paiement_delete(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: Paiement_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Paiement_FirstRow
+  ): Paiement_KeyOutput @fdc_generated(from: "Paiement", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Parcelle` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  parcelle_delete(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: Parcelle_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Parcelle_FirstRow
+  ): Parcelle_KeyOutput @fdc_generated(from: "Parcelle", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Region` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  region_delete(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: Region_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Region_FirstRow
+  ): Region_KeyOutput @fdc_generated(from: "Region", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `SousPrefecture` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  sousPrefecture_delete(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: SousPrefecture_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: SousPrefecture_FirstRow
+  ): SousPrefecture_KeyOutput @fdc_generated(from: "SousPrefecture", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `SuiviVisuel` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  suiviVisuel_delete(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: SuiviVisuel_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: SuiviVisuel_FirstRow
+  ): SuiviVisuel_KeyOutput @fdc_generated(from: "SuiviVisuel", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `TaxeFonciere` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  taxeFonciere_delete(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: TaxeFonciere_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: TaxeFonciere_FirstRow
+  ): TaxeFonciere_KeyOutput @fdc_generated(from: "TaxeFonciere", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `TransactionFonciere` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  transactionFonciere_delete(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: TransactionFonciere_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: TransactionFonciere_FirstRow
+  ): TransactionFonciere_KeyOutput @fdc_generated(from: "TransactionFonciere", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Utilisateur` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  utilisateur_delete(
+    """
+    The key used to identify the object.
+    """
+    key: Utilisateur_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Utilisateur_FirstRow
+  ): Utilisateur_KeyOutput @fdc_generated(from: "Utilisateur", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `UtilisateurRole` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  utilisateurRole_delete(
+    """
+    The key used to identify the object.
+    """
+    key: UtilisateurRole_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: UtilisateurRole_FirstRow
+  ): UtilisateurRole_KeyOutput @fdc_generated(from: "UtilisateurRole", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete `Abonnement` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  abonnement_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Abonnement_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Abonnement", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Alerte` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  alerte_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Alerte_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Alerte", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Commune` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  commune_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Commune_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Commune", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `DocumentParcelle` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  documentParcelle_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: DocumentParcelle_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "DocumentParcelle", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `FraisEnregistrement` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  fraisEnregistrement_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: FraisEnregistrement_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "FraisEnregistrement", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `JournalAudit` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  journalAudit_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: JournalAudit_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "JournalAudit", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Litige` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  litige_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Litige_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Litige", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Paiement` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  paiement_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Paiement_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Paiement", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Parcelle` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  parcelle_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Parcelle_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Parcelle", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Region` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  region_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Region_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Region", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `SousPrefecture` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  sousPrefecture_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: SousPrefecture_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "SousPrefecture", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `SuiviVisuel` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  suiviVisuel_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: SuiviVisuel_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "SuiviVisuel", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `TaxeFonciere` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  taxeFonciere_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: TaxeFonciere_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "TaxeFonciere", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `TransactionFonciere` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  transactionFonciere_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: TransactionFonciere_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "TransactionFonciere", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Utilisateur` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  utilisateur_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Utilisateur_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Utilisateur", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `UtilisateurRole` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  utilisateurRole_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: UtilisateurRole_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "UtilisateurRole", purpose: DELETE_MULTIPLE)
+}

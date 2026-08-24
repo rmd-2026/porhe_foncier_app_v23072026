@@ -1,0 +1,12 @@
+specVersion: "v1alpha"
+serviceId: "porhe-foncier-23072026-sid"
+location: "us-central1"
+schema:
+  source: "./schema"
+  datasource:
+    postgresql:
+      database: "porhe-foncier-23072026-db"
+      cloudSql:
+        instanceId: "porhe-foncier-23072026-sid"
+connectorDirs:
+  - "./connector/porhe-foncier-23072026"

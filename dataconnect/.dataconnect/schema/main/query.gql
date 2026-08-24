@@ -1,0 +1,910 @@
+extend type Query {
+  """
+  ✨ Look up a single `Abonnement` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  abonnement(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: Abonnement_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Abonnement_FirstRow
+  ): Abonnement @fdc_generated(from: "Abonnement", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `Alerte` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  alerte(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: Alerte_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Alerte_FirstRow
+  ): Alerte @fdc_generated(from: "Alerte", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `Commune` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  commune(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: Commune_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Commune_FirstRow
+  ): Commune @fdc_generated(from: "Commune", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `DocumentParcelle` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  documentParcelle(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: DocumentParcelle_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: DocumentParcelle_FirstRow
+  ): DocumentParcelle @fdc_generated(from: "DocumentParcelle", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `FraisEnregistrement` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  fraisEnregistrement(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: FraisEnregistrement_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: FraisEnregistrement_FirstRow
+  ): FraisEnregistrement @fdc_generated(from: "FraisEnregistrement", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `JournalAudit` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  journalAudit(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: JournalAudit_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: JournalAudit_FirstRow
+  ): JournalAudit @fdc_generated(from: "JournalAudit", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `Litige` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  litige(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: Litige_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Litige_FirstRow
+  ): Litige @fdc_generated(from: "Litige", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `Paiement` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  paiement(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: Paiement_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Paiement_FirstRow
+  ): Paiement @fdc_generated(from: "Paiement", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `Parcelle` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  parcelle(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: Parcelle_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Parcelle_FirstRow
+  ): Parcelle @fdc_generated(from: "Parcelle", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `Region` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  region(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: Region_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Region_FirstRow
+  ): Region @fdc_generated(from: "Region", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `SousPrefecture` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  sousPrefecture(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: SousPrefecture_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: SousPrefecture_FirstRow
+  ): SousPrefecture @fdc_generated(from: "SousPrefecture", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `SuiviVisuel` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  suiviVisuel(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: SuiviVisuel_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: SuiviVisuel_FirstRow
+  ): SuiviVisuel @fdc_generated(from: "SuiviVisuel", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `TaxeFonciere` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  taxeFonciere(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: TaxeFonciere_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: TaxeFonciere_FirstRow
+  ): TaxeFonciere @fdc_generated(from: "TaxeFonciere", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `TransactionFonciere` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  transactionFonciere(
+    """
+    The unique ID of the object.
+    """
+    id: Int
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: Int_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: TransactionFonciere_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: TransactionFonciere_FirstRow
+  ): TransactionFonciere @fdc_generated(from: "TransactionFonciere", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `Utilisateur` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  utilisateur(
+    """
+    The key used to identify the object.
+    """
+    key: Utilisateur_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Utilisateur_FirstRow
+  ): Utilisateur @fdc_generated(from: "Utilisateur", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `UtilisateurRole` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  utilisateurRole(
+    """
+    The key used to identify the object.
+    """
+    key: UtilisateurRole_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: UtilisateurRole_FirstRow
+  ): UtilisateurRole @fdc_generated(from: "UtilisateurRole", purpose: QUERY_SINGLE)
+  """
+  ✨ List `Abonnement` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  abonnements(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Abonnement_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Abonnement_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Abonnement_Having
+  ): [Abonnement!]! @fdc_generated(from: "Abonnement", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `Alerte` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  alertes(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Alerte_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Alerte_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Alerte_Having
+  ): [Alerte!]! @fdc_generated(from: "Alerte", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `Commune` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  communes(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Commune_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Commune_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Commune_Having
+  ): [Commune!]! @fdc_generated(from: "Commune", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `DocumentParcelle` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  documentParcelles(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: DocumentParcelle_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [DocumentParcelle_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: DocumentParcelle_Having
+  ): [DocumentParcelle!]! @fdc_generated(from: "DocumentParcelle", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `FraisEnregistrement` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  fraisEnregistrements(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: FraisEnregistrement_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [FraisEnregistrement_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: FraisEnregistrement_Having
+  ): [FraisEnregistrement!]! @fdc_generated(from: "FraisEnregistrement", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `JournalAudit` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  journalAudits(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: JournalAudit_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [JournalAudit_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: JournalAudit_Having
+  ): [JournalAudit!]! @fdc_generated(from: "JournalAudit", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `Litige` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  litiges(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Litige_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Litige_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Litige_Having
+  ): [Litige!]! @fdc_generated(from: "Litige", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `Paiement` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  paiements(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Paiement_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Paiement_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Paiement_Having
+  ): [Paiement!]! @fdc_generated(from: "Paiement", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `Parcelle` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  parcelles(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Parcelle_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Parcelle_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Parcelle_Having
+  ): [Parcelle!]! @fdc_generated(from: "Parcelle", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `Region` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  regions(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Region_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Region_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Region_Having
+  ): [Region!]! @fdc_generated(from: "Region", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `SousPrefecture` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  sousPrefectures(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: SousPrefecture_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [SousPrefecture_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: SousPrefecture_Having
+  ): [SousPrefecture!]! @fdc_generated(from: "SousPrefecture", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `SuiviVisuel` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  suiviVisuels(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: SuiviVisuel_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [SuiviVisuel_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: SuiviVisuel_Having
+  ): [SuiviVisuel!]! @fdc_generated(from: "SuiviVisuel", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `TaxeFonciere` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  taxeFoncieres(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: TaxeFonciere_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [TaxeFonciere_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: TaxeFonciere_Having
+  ): [TaxeFonciere!]! @fdc_generated(from: "TaxeFonciere", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `TransactionFonciere` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  transactionFoncieres(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: TransactionFonciere_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [TransactionFonciere_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: TransactionFonciere_Having
+  ): [TransactionFonciere!]! @fdc_generated(from: "TransactionFonciere", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `Utilisateur` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  utilisateurs(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Utilisateur_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Utilisateur_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Utilisateur_Having
+  ): [Utilisateur!]! @fdc_generated(from: "Utilisateur", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `UtilisateurRole` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  utilisateurRoles(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: UtilisateurRole_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [UtilisateurRole_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: UtilisateurRole_Having
+  ): [UtilisateurRole!]! @fdc_generated(from: "UtilisateurRole", purpose: QUERY_MULTIPLE)
+}

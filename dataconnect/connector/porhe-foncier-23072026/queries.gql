@@ -1,0 +1,938 @@
+# ==========================================================
+# 0. RÉFÉRENCE — Region / Commune / SousPrefecture
+# ==========================================================
+
+query listerRegions @auth(level: PUBLIC) {
+    regions(orderBy: [{ id: ASC }]) {
+        id
+        nom
+    }
+}
+
+query listerCommunes @auth(level: PUBLIC) {
+    communes(orderBy: [{ nom: ASC }]) {
+        id
+        nom
+        regionId
+    }
+}
+
+query listerCommunesParRegion($regionId: Int!) @auth(level: PUBLIC) {
+    communes(where: { regionId: { eq: $regionId } }, orderBy: [{ nom: ASC }]) {
+        id
+        nom
+        regionId
+    }
+}
+
+query listerSousPrefectures @auth(level: PUBLIC) {
+    sousPrefectures(orderBy: [{ nom: ASC }]) {
+        id
+        nom
+        communeId
+    }
+}
+
+query listerSousPrefecturesParCommune($communeId: Int!) @auth(level: PUBLIC) {
+    sousPrefectures(where: { communeId: { eq: $communeId } }, orderBy: [{ nom: ASC }]) {
+        id
+        nom
+        communeId
+    }
+}
+
+# ==========================================================
+# 1. IDENTITÉ — Utilisateur
+# ==========================================================
+
+query obtenirProfilParFirebaseUid($firebaseUid: String!) @auth(level: USER) {
+    utilisateur(key: { firebaseUid: $firebaseUid }) {
+        id
+        firebaseUid
+        nom
+        prenom
+        civilite
+        dateNaissance
+        lieuNaissance
+        nationalite
+        typePieceIdentite
+        numeroPieceIdentite
+        pieceIdentiteValideDe
+        pieceIdentiteValideA
+        email
+        telephone
+        adresse
+        photoUrl
+        statutCompte
+        motifStatut
+        createdAt
+        updatedAt
+    }
+}
+
+query estProfilIncomplet($firebaseUid: String!) @auth(level: USER) {
+    utilisateur(key: { firebaseUid: $firebaseUid }) {
+        nom
+        prenom
+        telephone
+        adresse
+    }
+}
+
+query listerUtilisateursParStatutCompte($statutCompte: StatutCompte!) @auth(level: USER) {
+    utilisateurs(where: { statutCompte: { eq: $statutCompte } }, orderBy: [{ createdAt: DESC }]) {
+        id
+        firebaseUid
+        nom
+        prenom
+        email
+        telephone
+        statutCompte
+        motifStatut
+        createdAt
+    }
+}
+
+query obtenirUtilisateurParId($id: Int!) @auth(level: USER) {
+    utilisateurs(where: { id: { eq: $id } }) {
+        id
+        firebaseUid
+        nom
+        prenom
+        email
+        telephone
+    }
+}
+
+query listerTousUtilisateurs($limit: Int = 50, $offset: Int = 0) @auth(level: USER) {
+    utilisateurs(orderBy: [{ createdAt: DESC }], limit: $limit, offset: $offset) {
+        id
+        firebaseUid
+        nom
+        prenom
+        email
+        telephone
+        statutCompte
+        createdAt
+    }
+}
+
+# ==========================================================
+# 2. RBAC — UtilisateurRole
+# ==========================================================
+
+query obtenirRoleParUtilisateurId($utilisateurId: Int!) @auth(level: USER) {
+    utilisateurRole(key: { utilisateurId: $utilisateurId }) {
+        id
+        nomRole
+        communeId
+        createdAt
+        updatedAt
+    }
+}
+
+query verifierAppartenanceCommune($utilisateurId: Int!, $communeId: Int!) @auth(level: USER) {
+    utilisateurRoles(where: {
+        _and: [
+            { utilisateurId: { eq: $utilisateurId } }
+            {
+                _or: [
+                    { nomRole: { eq: ADMIN_GLOBAL } }
+                    { communeId: { eq: $communeId } }
+                ]
+            }
+        ]
+    }) {
+        nomRole
+        communeId
+    }
+}
+
+# ==========================================================
+# 3. AUDIT / HISTORIQUE — JournalAudit
+# ==========================================================
+
+query listerAuditToutes($limit: Int = 50, $offset: Int = 0) @auth(level: USER) {
+    journalAudits(orderBy: [{ createdAt: DESC }], limit: $limit, offset: $offset) {
+        id
+        typeEntite
+        entiteId
+        action
+        motif
+        acteurFirebaseUid
+        communeId
+        donneesAvant
+        donneesApres
+        createdAt
+    }
+}
+
+query listerAuditParActeur($acteurFirebaseUid: String!) @auth(level: USER) {
+    journalAudits(where: { acteurFirebaseUid: { eq: $acteurFirebaseUid } }, orderBy: [{ createdAt: DESC }]) {
+        id
+        typeEntite
+        entiteId
+        action
+        motif
+        communeId
+        createdAt
+    }
+}
+
+query listerAuditParCommune($communeId: Int!) @auth(level: USER) {
+    journalAudits(where: { communeId: { eq: $communeId } }, orderBy: [{ createdAt: DESC }]) {
+        id
+        typeEntite
+        entiteId
+        action
+        motif
+        acteurFirebaseUid
+        donneesAvant
+        donneesApres
+        createdAt
+    }
+}
+
+query listerAuditParTypeEntite($typeEntite: String!) @auth(level: USER) {
+    journalAudits(where: { typeEntite: { eq: $typeEntite } }, orderBy: [{ createdAt: DESC }]) {
+        id
+        entiteId
+        action
+        motif
+        acteurFirebaseUid
+        communeId
+        createdAt
+    }
+}
+
+query listerHistoriqueRejetsEtSuppressions($communeId: Int, $limit: Int = 50, $offset: Int = 0) @auth(level: USER) {
+    journalAudits(
+        where: {
+            _and: [
+                { communeId: { eq: $communeId } }
+                {
+                    _or: [
+                        { action: { eq: "REJET" } }
+                        { action: { eq: "SUPPRESSION" } }
+                        { action: { eq: "ANNULATION" } }
+                    ]
+                }
+            ]
+        }
+        orderBy: [{ createdAt: DESC }]
+        limit: $limit
+        offset: $offset
+    ) {
+        id
+        typeEntite
+        entiteId
+        action
+        motif
+        acteurFirebaseUid
+        communeId
+        donneesAvant
+        createdAt
+    }
+}
+
+# ==========================================================
+# 4. PARCELLE
+# ==========================================================
+
+query obtenirParcelleParId($id: Int!) @auth(level: USER) {
+    parcelle(id: $id) {
+        id
+        codeParcelle
+        utilisateurId
+        regionId
+        communeId
+        sousPrefectureId
+        superficieM2
+        latitude
+        longitude
+        adresseTerrain
+        qrCode
+        statut
+        motifRejet
+        createdAt
+        updatedAt
+    }
+}
+
+query obtenirParcelleParQrCode($qrCode: String!) @auth(level: USER) {
+    parcelles(where: { qrCode: { eq: $qrCode } }) {
+        id
+        codeParcelle
+        utilisateurId
+        communeId
+        statut
+    }
+}
+
+query listerParcellesParUtilisateur($utilisateurId: Int!) @auth(level: USER) {
+    parcelles(where: { utilisateurId: { eq: $utilisateurId } }, orderBy: [{ createdAt: DESC }]) {
+        id
+        codeParcelle
+        communeId
+        superficieM2
+        statut
+        createdAt
+    }
+}
+
+query listerParcellesParCommune($communeId: Int!, $limit: Int = 50, $offset: Int = 0) @auth(level: USER) {
+    parcelles(where: { communeId: { eq: $communeId } }, orderBy: [{ createdAt: DESC }], limit: $limit, offset: $offset) {
+        id
+        codeParcelle
+        utilisateurId
+        superficieM2
+        statut
+        createdAt
+    }
+}
+
+query listerParcellesParStatut($communeId: Int!, $statut: StatutParcelle!) @auth(level: USER) {
+    parcelles(where: { communeId: { eq: $communeId }, statut: { eq: $statut } }, orderBy: [{ createdAt: DESC }]) {
+        id
+        codeParcelle
+        utilisateurId
+        communeId
+        superficieM2
+        statut
+        createdAt
+        updatedAt
+    }
+}
+
+query listerParcellesRejeteesParCommune($communeId: Int!) @auth(level: USER) {
+    parcelles(where: { communeId: { eq: $communeId }, statut: { eq: REJETEE } }, orderBy: [{ updatedAt: DESC }]) {
+        id
+        codeParcelle
+        utilisateurId
+        motifRejet
+        updatedAt
+    }
+}
+
+query listerParcellesDansZone($latMin: Float!, $latMax: Float!, $lonMin: Float!, $lonMax: Float!) @auth(level: USER) {
+    parcelles(where: {
+        latitude: { ge: $latMin, le: $latMax }
+        longitude: { ge: $lonMin, le: $lonMax }
+    }) {
+        id
+        codeParcelle
+        latitude
+        longitude
+        statut
+        communeId
+    }
+}
+
+query rechercherParcelles($terme: String!) @auth(level: USER) {
+    parcelles(where: { codeParcelle: { contains: $terme } }, orderBy: [{ createdAt: DESC }], limit: 20) {
+        id
+        codeParcelle
+        communeId
+        statut
+    }
+}
+
+query listerToutesParcelles($limit: Int = 50, $offset: Int = 0) @auth(level: USER) {
+    parcelles(orderBy: [{ createdAt: DESC }], limit: $limit, offset: $offset) {
+        id
+        codeParcelle
+        utilisateurId
+        communeId
+        statut
+        createdAt
+    }
+}
+
+# ==========================================================
+# 5. TRANSACTION FONCIÈRE
+# ==========================================================
+
+query obtenirTransactionParId($id: Int!) @auth(level: USER) {
+    transactionFonciere(id: $id) {
+        id
+        parcelleId
+        vendeurId
+        acheteurId
+        typeTransaction
+        montant
+        statut
+        motifRejet
+        dateTransaction
+        createdAt
+        updatedAt
+    }
+}
+
+query listerTransactionsParParcelle($parcelleId: Int!) @auth(level: USER) {
+    transactionFoncieres(where: { parcelleId: { eq: $parcelleId } }, orderBy: [{ dateTransaction: DESC }]) {
+        id
+        typeTransaction
+        montant
+        statut
+        dateTransaction
+    }
+}
+
+query listerTransactionsParUtilisateur($utilisateurId: Int!) @auth(level: USER) {
+    transactionFoncieres(
+        where: {
+            _or: [
+                { vendeurId: { eq: $utilisateurId } }
+                { acheteurId: { eq: $utilisateurId } }
+            ]
+        }
+        orderBy: [{ dateTransaction: DESC }]
+    ) {
+        id
+        parcelleId
+        typeTransaction
+        montant
+        statut
+        dateTransaction
+    }
+}
+
+query listerTransactionsEnAttenteParCommune($communeId: Int!) @auth(level: USER) {
+    transactionFoncieres(where: { statut: { eq: EN_ATTENTE_VALIDATION }, parcelle: { communeId: { eq: $communeId } } }, orderBy: [{ createdAt: ASC }]) {
+        id
+        parcelleId
+        typeTransaction
+        montant
+        dateTransaction
+        createdAt
+    }
+}
+
+query listerTransactionsRejeteesParCommune($communeId: Int!) @auth(level: USER) {
+    transactionFoncieres(where: { statut: { eq: REJETEE }, parcelle: { communeId: { eq: $communeId } } }, orderBy: [{ updatedAt: DESC }]) {
+        id
+        parcelleId
+        motifRejet
+        updatedAt
+    }
+}
+
+query obtenirHistoriquePropriete($parcelleId: Int!) @auth(level: USER) {
+    transactionFoncieres(where: { parcelleId: { eq: $parcelleId }, statut: { eq: VALIDEE } }, orderBy: [{ dateTransaction: ASC }]) {
+        id
+        vendeurId
+        acheteurId
+        typeTransaction
+        montant
+        dateTransaction
+    }
+}
+
+query listerToutesTransactions($limit: Int = 50, $offset: Int = 0) @auth(level: USER) {
+    transactionFoncieres(orderBy: [{ dateTransaction: DESC }], limit: $limit, offset: $offset) {
+        id
+        parcelleId
+        typeTransaction
+        montant
+        statut
+        dateTransaction
+    }
+}
+
+# ==========================================================
+# 6. DOCUMENT PARCELLE
+# ==========================================================
+
+query obtenirDocumentParId($id: Int!) @auth(level: USER) {
+    documentParcelle(id: $id) {
+        id
+        parcelleId
+        typeDocument
+        nomFichier
+        urlStockage
+        uploadeParFirebaseUid
+        createdAt
+        updatedAt
+    }
+}
+
+query listerDocumentsParParcelle($parcelleId: Int!) @auth(level: USER) {
+    documentParcelles(where: { parcelleId: { eq: $parcelleId } }, orderBy: [{ createdAt: DESC }]) {
+        id
+        typeDocument
+        nomFichier
+        urlStockage
+        uploadeParFirebaseUid
+        createdAt
+    }
+}
+
+query listerTousDocuments($limit: Int = 50, $offset: Int = 0) @auth(level: USER) {
+    documentParcelles(orderBy: [{ createdAt: DESC }], limit: $limit, offset: $offset) {
+        id
+        parcelleId
+        typeDocument
+        nomFichier
+        createdAt
+    }
+}
+
+# ==========================================================
+# 7. TAXE FONCIÈRE
+# ==========================================================
+
+query obtenirTaxeParId($id: Int!) @auth(level: USER) {
+    taxeFonciere(id: $id) {
+        id
+        parcelleId
+        anneeFiscale
+        montantDu
+        dateEcheance
+        statut
+        createdAt
+        updatedAt
+    }
+}
+
+query listerTaxesParParcelle($parcelleId: Int!) @auth(level: USER) {
+    taxeFoncieres(where: { parcelleId: { eq: $parcelleId } }, orderBy: [{ anneeFiscale: DESC }]) {
+        id
+        anneeFiscale
+        montantDu
+        dateEcheance
+        statut
+    }
+}
+
+query listerTaxesEnRetardParCommune($communeId: Int!) @auth(level: USER) {
+    taxeFoncieres(where: { statut: { eq: EN_RETARD }, parcelle: { communeId: { eq: $communeId } } }, orderBy: [{ dateEcheance: ASC }]) {
+        id
+        parcelleId
+        anneeFiscale
+        montantDu
+        dateEcheance
+    }
+}
+
+query listerTaxesEcheanceDepassee($communeId: Int!, $dateActuelle: Date!) @auth(level: USER) {
+    taxeFoncieres(
+        where: {
+            statut: { eq: EN_ATTENTE }
+            dateEcheance: { lt: $dateActuelle }
+            parcelle: { communeId: { eq: $communeId } }
+        }
+        orderBy: [{ dateEcheance: ASC }]
+    ) {
+        id
+        parcelleId
+        anneeFiscale
+        montantDu
+        dateEcheance
+    }
+}
+
+query obtenirRapportFinancierCommune($communeId: Int!) @auth(level: USER) {
+    taxeFoncieres(where: { parcelle: { communeId: { eq: $communeId } } }) {
+        id
+        montantDu
+        statut
+        anneeFiscale
+    }
+}
+
+query listerToutesTaxes($limit: Int = 50, $offset: Int = 0) @auth(level: USER) {
+    taxeFoncieres(orderBy: [{ dateEcheance: DESC }], limit: $limit, offset: $offset) {
+        id
+        parcelleId
+        anneeFiscale
+        montantDu
+        statut
+        dateEcheance
+    }
+}
+
+# ==========================================================
+# 8. SUIVI VISUEL
+# ==========================================================
+
+query listerSuiviVisuelParParcelle($parcelleId: Int!) @auth(level: USER) {
+    suiviVisuels(where: { parcelleId: { eq: $parcelleId } }, orderBy: [{ createdAt: DESC }]) {
+        id
+        typeMedia
+        urlStockage
+        latitude
+        longitude
+        uploadeParFirebaseUid
+        createdAt
+    }
+}
+
+query listerSuiviVisuelRecentParParcelle($parcelleId: Int!) @auth(level: USER) {
+    suiviVisuels(where: { parcelleId: { eq: $parcelleId } }, orderBy: [{ createdAt: DESC }], limit: 5) {
+        id
+        typeMedia
+        urlStockage
+        createdAt
+    }
+}
+
+query listerSuiviVisuelCompletParParcelle($parcelleId: Int!) @auth(level: USER) {
+    suiviVisuels(where: { parcelleId: { eq: $parcelleId } }, orderBy: [{ createdAt: DESC }]) {
+        id
+        typeMedia
+        urlStockage
+        latitude
+        longitude
+        uploadeParFirebaseUid
+        createdAt
+    }
+}
+
+query obtenirContexteAccesSuiviVisuel($parcelleId: Int!, $utilisateurId: Int!) @auth(level: USER) {
+    abonnements(where: { utilisateurId: { eq: $utilisateurId }, statut: { eq: ACTIF } }, orderBy: [{ dateDebut: DESC }], limit: 1) {
+        niveau
+    }
+    suiviVisuels(where: { parcelleId: { eq: $parcelleId } }, orderBy: [{ createdAt: DESC }]) {
+        id
+        typeMedia
+        urlStockage
+        createdAt
+    }
+}
+
+query obtenirUploadsRecentsPourAbonnement($parcelleId: Int!, $utilisateurId: Int!, $depuis: Timestamp!) @auth(level: USER) {
+    abonnements(where: { utilisateurId: { eq: $utilisateurId }, statut: { eq: ACTIF } }, orderBy: [{ dateDebut: DESC }], limit: 1) {
+        niveau
+    }
+    suiviVisuels(where: { parcelleId: { eq: $parcelleId }, createdAt: { ge: $depuis } }, orderBy: [{ createdAt: DESC }]) {
+        id
+        typeMedia
+        createdAt
+    }
+}
+
+# ==========================================================
+# 9. ABONNEMENT
+# ==========================================================
+
+query obtenirAbonnementActifParUtilisateur($utilisateurId: Int!) @auth(level: USER) {
+    abonnements(where: { utilisateurId: { eq: $utilisateurId }, statut: { eq: ACTIF } }, orderBy: [{ dateDebut: DESC }]) {
+        id
+        niveau
+        statut
+        dateDebut
+        dateFin
+    }
+}
+
+query listerAbonnementsParUtilisateur($utilisateurId: Int!) @auth(level: USER) {
+    abonnements(where: { utilisateurId: { eq: $utilisateurId } }, orderBy: [{ dateDebut: DESC }]) {
+        id
+        niveau
+        statut
+        dateDebut
+        dateFin
+    }
+}
+
+query listerAbonnementsActifsToutes @auth(level: USER) {
+    abonnements(where: { statut: { eq: ACTIF } }, orderBy: [{ dateDebut: DESC }]) {
+        id
+        utilisateurId
+        niveau
+        dateDebut
+        dateFin
+    }
+}
+
+query listerTousAbonnements($limit: Int = 50, $offset: Int = 0) @auth(level: USER) {
+    abonnements(orderBy: [{ dateDebut: DESC }], limit: $limit, offset: $offset) {
+        id
+        utilisateurId
+        niveau
+        statut
+        dateDebut
+        dateFin
+    }
+}
+
+# ==========================================================
+# 10. PAIEMENT
+# ==========================================================
+
+query obtenirPaiementParId($id: Int!) @auth(level: USER) {
+    paiement(id: $id) {
+        id
+        utilisateurId
+        taxeFonciereId
+        abonnementId
+        fraisEnregistrementId
+        methodePaiement
+        montant
+        referenceTransaction
+        statut
+        createdAt
+        updatedAt
+    }
+}
+
+query listerPaiementsParUtilisateur($utilisateurId: Int!) @auth(level: USER) {
+    paiements(where: { utilisateurId: { eq: $utilisateurId } }, orderBy: [{ createdAt: DESC }]) {
+        id
+        taxeFonciereId
+        abonnementId
+        fraisEnregistrementId
+        methodePaiement
+        montant
+        referenceTransaction
+        statut
+        createdAt
+    }
+}
+
+query listerPaiementsTaxeEnAttenteParCommune($communeId: Int!) @auth(level: USER) {
+    paiements(
+        where: {
+            statut: { eq: EN_ATTENTE }
+            taxeFonciereId: { isNull: false }
+            taxeFonciere: { parcelle: { communeId: { eq: $communeId } } }
+        }
+        orderBy: [{ createdAt: ASC }]
+    ) {
+        id
+        utilisateurId
+        taxeFonciereId
+        methodePaiement
+        montant
+        referenceTransaction
+        createdAt
+    }
+}
+
+query listerPaiementsAbonnementEnAttente @auth(level: USER) {
+    paiements(
+        where: {
+            statut: { eq: EN_ATTENTE }
+            abonnementId: { isNull: false }
+        }
+        orderBy: [{ createdAt: ASC }]
+    ) {
+        id
+        utilisateurId
+        abonnementId
+        methodePaiement
+        montant
+        referenceTransaction
+        createdAt
+    }
+}
+
+query listerTousPaiements($limit: Int = 50, $offset: Int = 0) @auth(level: USER) {
+    paiements(orderBy: [{ createdAt: DESC }], limit: $limit, offset: $offset) {
+        id
+        utilisateurId
+        methodePaiement
+        montant
+        statut
+        createdAt
+    }
+}
+
+# ==========================================================
+# 11. ALERTE
+# ==========================================================
+query obtenirAlerteParId($id: Int!) @auth(level: USER) {
+    alerte(id: $id) {
+        id
+        utilisateurId
+        parcelleId
+        typeAlerte
+        message
+        lue
+        createdAt
+    }
+}
+
+query listerAlertesParUtilisateur($utilisateurId: Int!, $limit: Int = 50, $offset: Int = 0) @auth(level: USER) {
+    alertes(where: { utilisateurId: { eq: $utilisateurId } }, orderBy: [{ createdAt: DESC }], limit: $limit, offset: $offset) {
+        id
+        parcelleId
+        typeAlerte
+        message
+        lue
+        createdAt
+    }
+}
+
+query listerAlertesNonLuesParUtilisateur($utilisateurId: Int!) @auth(level: USER) {
+    alertes(where: { utilisateurId: { eq: $utilisateurId }, lue: { eq: false } }, orderBy: [{ createdAt: DESC }]) {
+        id
+        parcelleId
+        typeAlerte
+        message
+        createdAt
+    }
+}
+
+query listerToutesAlertes($limit: Int = 50, $offset: Int = 0) @auth(level: USER) {
+    alertes(orderBy: [{ createdAt: DESC }], limit: $limit, offset: $offset) {
+        id
+        utilisateurId
+        parcelleId
+        typeAlerte
+        lue
+        createdAt
+    }
+}
+
+# ==========================================================
+# 12. LITIGE
+# ==========================================================
+
+query obtenirLitigeParId($id: Int!) @auth(level: USER) {
+    litige(id: $id) {
+        id
+        parcelleId
+        transactionFonciereId
+        plaignantId
+        motif
+        statut
+        resolution
+        createdAt
+        updatedAt
+    }
+}
+
+query listerLitigesParParcelle($parcelleId: Int!) @auth(level: USER) {
+    litiges(where: { parcelleId: { eq: $parcelleId } }, orderBy: [{ createdAt: DESC }]) {
+        id
+        plaignantId
+        motif
+        statut
+        resolution
+        createdAt
+        updatedAt
+    }
+}
+
+query listerLitigesOuvertsParCommune($communeId: Int!) @auth(level: USER) {
+    litiges(where: { statut: { eq: OUVERT }, parcelle: { communeId: { eq: $communeId } } }, orderBy: [{ createdAt: ASC }]) {
+        id
+        parcelleId
+        plaignantId
+        motif
+        createdAt
+    }
+}
+
+query listerTousLitiges($limit: Int = 50, $offset: Int = 0) @auth(level: USER) {
+    litiges(orderBy: [{ createdAt: DESC }], limit: $limit, offset: $offset) {
+        id
+        parcelleId
+        plaignantId
+        statut
+        createdAt
+    }
+}
+
+# ==========================================================
+# 13. FRAIS D'ENREGISTREMENT
+# ==========================================================
+query obtenirFraisParId($id: Int!) @auth(level: USER) {
+    fraisEnregistrement(id: $id) {
+        id
+        parcelleId
+        typeFrais
+        montant
+        statut
+        motifRejet
+        createdAt
+        updatedAt
+    }
+}
+
+query listerFraisParParcelle($parcelleId: Int!) @auth(level: USER) {
+    fraisEnregistrements(where: { parcelleId: { eq: $parcelleId } }, orderBy: [{ createdAt: DESC }]) {
+        id
+        typeFrais
+        montant
+        statut
+        createdAt
+    }
+}
+
+query listerFraisEnAttenteParCommune($communeId: Int!) @auth(level: USER) {
+    fraisEnregistrements(where: { statut: { eq: EN_ATTENTE }, parcelle: { communeId: { eq: $communeId } } }, orderBy: [{ createdAt: ASC }]) {
+        id
+        parcelleId
+        typeFrais
+        montant
+        createdAt
+    }
+}
+
+query listerTousFrais($limit: Int = 50, $offset: Int = 0) @auth(level: USER) {
+    fraisEnregistrements(orderBy: [{ createdAt: DESC }], limit: $limit, offset: $offset) {
+        id
+        parcelleId
+        typeFrais
+        montant
+        statut
+        createdAt
+    }
+}
+
+# ==========================================================
+# 14. CROSS-CUTTING / AGRÉGATS
+# ==========================================================
+
+query obtenirStatistiquesCommune($communeId: Int!) @auth(level: USER) {
+    parcelles(where: { communeId: { eq: $communeId } }) {
+        id
+        statut
+    }
+    taxeFoncieres(where: { parcelle: { communeId: { eq: $communeId } } }) {
+        id
+        montantDu
+        statut
+    }
+    transactionFoncieres(where: { parcelle: { communeId: { eq: $communeId } } }) {
+        id
+        statut
+        montant
+    }
+}
+
+query obtenirChronologieParcelle($parcelleId: Int!) @auth(level: USER) {
+    transactionFoncieres(where: { parcelleId: { eq: $parcelleId } }, orderBy: [{ dateTransaction: DESC }]) {
+        id
+        typeTransaction
+        montant
+        statut
+        dateTransaction
+    }
+    taxeFoncieres(where: { parcelleId: { eq: $parcelleId } }, orderBy: [{ anneeFiscale: DESC }]) {
+        id
+        anneeFiscale
+        montantDu
+        statut
+    }
+    documentParcelles(where: { parcelleId: { eq: $parcelleId } }, orderBy: [{ createdAt: DESC }]) {
+        id
+        typeDocument
+        nomFichier
+        createdAt
+    }
+    suiviVisuels(where: { parcelleId: { eq: $parcelleId } }, orderBy: [{ createdAt: DESC }]) {
+        id
+        typeMedia
+        urlStockage
+        createdAt
+    }
+    litiges(where: { parcelleId: { eq: $parcelleId } }, orderBy: [{ createdAt: DESC }]) {
+        id
+        statut
+        motif
+        createdAt
+    }
+}

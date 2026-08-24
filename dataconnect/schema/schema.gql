@@ -1,0 +1,314 @@
+type Region @table(name: "region") {
+  id: Int! @unique
+  nom: String! @col(name: "nom")
+}
+
+type Commune @table(name: "commune") {
+  id: Int! @unique
+  nom: String! @col(name: "nom")
+  regionId: Int! @col(name: "region_id")
+  region: Region! @ref(fields: "regionId", references: "id")
+}
+
+type SousPrefecture @table(name: "sous_prefecture") {
+  id: Int! @unique
+  nom: String! @col(name: "nom")
+  communeId: Int! @col(name: "commune_id")
+  commune: Commune! @ref(fields: "communeId", references: "id")
+}
+
+enum Civilite {
+  MONSIEUR
+  MADAME
+  MADEMOISELLE
+}
+
+enum TypePieceIdentite {
+  CIN
+  PASSEPORT
+}
+
+enum StatutCompte {
+  NON_VERIFIE
+  ACTIF
+  DESACTIVE
+}
+
+type Utilisateur @table(name: "utilisateur", key: ["firebaseUid"]) {
+  id: Int! @unique @col(dataType: "serial")
+  firebaseUid: String! @unique @col(name: "firebase_uid")
+  nom: String @col(name: "nom")
+  prenom: String @col(name: "prenom")
+  civilite: Civilite @col(name: "civilite")
+  dateNaissance: Date @col(name: "date_naissance")
+  lieuNaissance: String @col(name: "lieu_naissance")
+  nationalite: String @col(name: "nationalite")
+  typePieceIdentite: TypePieceIdentite @col(name: "type_piece_identite")
+  numeroPieceIdentite: String @col(name: "numero_piece_identite")
+  pieceIdentiteValideDe: Date @col(name: "piece_identite_valide_de")
+  pieceIdentiteValideA: Date @col(name: "piece_identite_valide_a")
+  email: String @col(name: "email")
+  telephone: String @col(name: "telephone")
+  adresse: String @col(name: "adresse")
+  photoUrl: String @col(name: "photo_url")
+  statutCompte: StatutCompte! @col(name: "statut_compte") @default(value: NON_VERIFIE)
+  motifStatut: String @col(name: "motif_statut")
+  createdAt: Timestamp! @col(name: "created_at") @default(expr: "request.time")
+  updatedAt: Timestamp! @col(name: "updated_at") @default(expr: "request.time")
+}
+
+enum NomRole {
+  AGENT
+  ADMIN_COMMUNE
+  ADMIN_GLOBAL
+  PROPRIETAIRE
+}
+
+type UtilisateurRole @table(name: "utilisateur_role", key: ["utilisateurId"]) {
+  id: Int! @unique @col(dataType: "serial")
+  utilisateurId: Int! @col(name: "utilisateur_id")
+  utilisateur: Utilisateur! @ref(fields: "utilisateurId", references: "id")
+  nomRole: NomRole! @col(name: "nom_role")
+  communeId: Int @col(name: "commune_id")
+  commune: Commune @ref(fields: "communeId", references: "id")
+  createdAt: Timestamp! @col(name: "created_at") @default(expr: "request.time")
+  updatedAt: Timestamp! @col(name: "updated_at") @default(expr: "request.time")
+}
+
+type JournalAudit @table(name: "journal_audit") {
+  id: Int! @unique @col(dataType: "serial")
+  typeEntite: String! @col(name: "type_entite")
+  entiteId: Int! @col(name: "entite_id")
+  action: String! @col(name: "action")
+  motif: String @col(name: "motif")
+  acteurFirebaseUid: String! @col(name: "acteur_firebase_uid")
+  communeId: Int @col(name: "commune_id")
+  commune: Commune @ref(fields: "communeId", references: "id")
+  donneesAvant: String @col(name: "donnees_avant")
+  donneesApres: String @col(name: "donnees_apres")
+  createdAt: Timestamp! @col(name: "created_at") @default(expr: "request.time")
+}
+
+enum StatutParcelle {
+  EN_ATTENTE_VALIDATION
+  VALIDEE
+  REJETEE
+}
+
+type Parcelle @table(name: "parcelle") {
+  id: Int! @unique @col(dataType: "serial")
+  codeParcelle: String! @unique @col(name: "code_parcelle")
+  utilisateurId: Int! @col(name: "utilisateur_id")
+  utilisateur: Utilisateur! @ref(fields: "utilisateurId", references: "id")
+  regionId: Int! @col(name: "region_id")
+  region: Region! @ref(fields: "regionId", references: "id")
+  communeId: Int! @col(name: "commune_id")
+  commune: Commune! @ref(fields: "communeId", references: "id")
+  sousPrefectureId: Int @col(name: "sous_prefecture_id")
+  sousPrefecture: SousPrefecture @ref(fields: "sousPrefectureId", references: "id")
+  superficieM2: Float @col(name: "superficie_m2")
+  latitude: Float @col(name: "latitude")
+  longitude: Float @col(name: "longitude")
+  adresseTerrain: String @col(name: "adresse_terrain")
+  qrCode: String @unique @col(name: "qr_code")
+  statut: StatutParcelle! @col(name: "statut") @default(value: EN_ATTENTE_VALIDATION)
+  motifRejet: String @col(name: "motif_rejet")
+  createdAt: Timestamp! @col(name: "created_at") @default(expr: "request.time")
+  updatedAt: Timestamp! @col(name: "updated_at") @default(expr: "request.time")
+}
+
+enum StatutTransaction {
+  EN_ATTENTE_VALIDATION
+  VALIDEE
+  REJETEE
+}
+
+enum TypeTransaction {
+  VENTE
+  HERITAGE
+  DONATION
+  ECHANGE
+}
+
+type TransactionFonciere @table(name: "transaction_fonciere") {
+  id: Int! @unique @col(dataType: "serial")
+  parcelleId: Int! @col(name: "parcelle_id")
+  parcelle: Parcelle! @ref(fields: "parcelleId", references: "id")
+  vendeurId: Int! @col(name: "vendeur_id")
+  vendeur: Utilisateur! @ref(fields: "vendeurId", references: "id")
+  acheteurId: Int! @col(name: "acheteur_id")
+  acheteur: Utilisateur! @ref(fields: "acheteurId", references: "id")
+  typeTransaction: TypeTransaction! @col(name: "type_transaction")
+  montant: Float @col(name: "montant")
+  statut: StatutTransaction! @col(name: "statut") @default(value: EN_ATTENTE_VALIDATION)
+  motifRejet: String @col(name: "motif_rejet")
+  dateTransaction: Date! @col(name: "date_transaction")
+  createdAt: Timestamp! @col(name: "created_at") @default(expr: "request.time")
+  updatedAt: Timestamp! @col(name: "updated_at") @default(expr: "request.time")
+}
+
+enum TypeDocument {
+  TITRE_FONCIER
+  ACTE_VENTE
+  CERTIFICAT_HERITAGE
+  PLAN_CADASTRAL
+  AUTRE
+}
+
+type DocumentParcelle @table(name: "document_parcelle") {
+  id: Int! @unique @col(dataType: "serial")
+  parcelleId: Int! @col(name: "parcelle_id")
+  parcelle: Parcelle! @ref(fields: "parcelleId", references: "id")
+  typeDocument: TypeDocument! @col(name: "type_document")
+  nomFichier: String! @col(name: "nom_fichier")
+  urlStockage: String! @col(name: "url_stockage")
+  uploadeParFirebaseUid: String! @col(name: "uploade_par_firebase_uid")
+  createdAt: Timestamp! @col(name: "created_at") @default(expr: "request.time")
+  updatedAt: Timestamp! @col(name: "updated_at") @default(expr: "request.time")
+}
+
+enum StatutPaiement {
+  EN_ATTENTE
+  PAYE
+  EN_RETARD
+  ANNULE
+  REJETE
+}
+
+type TaxeFonciere @table(name: "taxe_fonciere") {
+  id: Int! @unique @col(dataType: "serial")
+  parcelleId: Int! @col(name: "parcelle_id")
+  parcelle: Parcelle! @ref(fields: "parcelleId", references: "id")
+  anneeFiscale: Int! @col(name: "annee_fiscale")
+  montantDu: Float! @col(name: "montant_du")
+  dateEcheance: Date! @col(name: "date_echeance")
+  statut: StatutPaiement! @col(name: "statut") @default(value: EN_ATTENTE)
+  createdAt: Timestamp! @col(name: "created_at") @default(expr: "request.time")
+  updatedAt: Timestamp! @col(name: "updated_at") @default(expr: "request.time")
+}
+
+enum TypeMedia {
+  PHOTO
+  VIDEO
+}
+
+type SuiviVisuel @table(name: "suivi_visuel") {
+  id: Int! @unique @col(dataType: "serial")
+  parcelleId: Int! @col(name: "parcelle_id")
+  parcelle: Parcelle! @ref(fields: "parcelleId", references: "id")
+  typeMedia: TypeMedia! @col(name: "type_media")
+  urlStockage: String! @col(name: "url_stockage")
+  latitude: Float @col(name: "latitude")
+  longitude: Float @col(name: "longitude")
+  uploadeParFirebaseUid: String! @col(name: "uploade_par_firebase_uid")
+  createdAt: Timestamp! @col(name: "created_at") @default(expr: "request.time")
+  updatedAt: Timestamp! @col(name: "updated_at") @default(expr: "request.time")
+}
+
+enum NiveauAbonnement {
+  BASIQUE
+  STANDARD
+  PREMIUM
+}
+
+enum StatutAbonnement {
+  ACTIF
+  EXPIRE
+  ANNULE
+}
+
+type Abonnement @table(name: "abonnement") {
+  id: Int! @unique @col(dataType: "serial")
+  utilisateurId: Int! @col(name: "utilisateur_id")
+  utilisateur: Utilisateur! @ref(fields: "utilisateurId", references: "id")
+  niveau: NiveauAbonnement! @col(name: "niveau")
+  statut: StatutAbonnement! @col(name: "statut") @default(value: ACTIF)
+  dateDebut: Date! @col(name: "date_debut")
+  dateFin: Date! @col(name: "date_fin")
+  createdAt: Timestamp! @col(name: "created_at") @default(expr: "request.time")
+  updatedAt: Timestamp! @col(name: "updated_at") @default(expr: "request.time")
+}
+
+enum MethodePaiement {
+  ORANGE_MONEY
+  MTN_MOMO
+  AUTRE
+}
+
+type Paiement @table(name: "paiement") {
+  id: Int! @unique @col(dataType: "serial")
+  utilisateurId: Int! @col(name: "utilisateur_id")
+  utilisateur: Utilisateur! @ref(fields: "utilisateurId", references: "id")
+  taxeFonciereId: Int @col(name: "taxe_fonciere_id")
+  taxeFonciere: TaxeFonciere @ref(fields: "taxeFonciereId", references: "id")
+  abonnementId: Int @col(name: "abonnement_id")
+  abonnement: Abonnement @ref(fields: "abonnementId", references: "id")
+  fraisEnregistrementId: Int @col(name: "frais_enregistrement_id")
+  fraisEnregistrement: FraisEnregistrement @ref(fields: "fraisEnregistrementId", references: "id")
+  methodePaiement: MethodePaiement! @col(name: "methode_paiement")
+  montant: Float! @col(name: "montant")
+  referenceTransaction: String @col(name: "reference_transaction")
+  statut: StatutPaiement! @col(name: "statut") @default(value: EN_ATTENTE)
+  createdAt: Timestamp! @col(name: "created_at") @default(expr: "request.time")
+  updatedAt: Timestamp! @col(name: "updated_at") @default(expr: "request.time")
+}
+
+enum TypeAlerte {
+  ACTIVITE_SUSPECTE
+  ECHEANCE_TAXE
+  NOUVELLE_TRANSACTION
+  SUIVI_VISUEL
+  AUTRE
+}
+
+type Alerte @table(name: "alerte") {
+  id: Int! @unique @col(dataType: "serial")
+  utilisateurId: Int! @col(name: "utilisateur_id")
+  utilisateur: Utilisateur! @ref(fields: "utilisateurId", references: "id")
+  parcelleId: Int @col(name: "parcelle_id")
+  parcelle: Parcelle @ref(fields: "parcelleId", references: "id")
+  typeAlerte: TypeAlerte! @col(name: "type_alerte")
+  message: String! @col(name: "message")
+  lue: Boolean! @col(name: "lue") @default(value: false)
+  createdAt: Timestamp! @col(name: "created_at") @default(expr: "request.time")
+}
+
+enum StatutLitige {
+  OUVERT
+  EN_COURS_EXAMEN
+  RESOLU
+  REJETE
+}
+
+type Litige @table(name: "litige") {
+  id: Int! @unique @col(dataType: "serial")
+  parcelleId: Int! @col(name: "parcelle_id")
+  parcelle: Parcelle! @ref(fields: "parcelleId", references: "id")
+  transactionFonciereId: Int @col(name: "transaction_fonciere_id")
+  transactionFonciere: TransactionFonciere @ref(fields: "transactionFonciereId", references: "id")
+  plaignantId: Int! @col(name: "plaignant_id")
+  plaignant: Utilisateur! @ref(fields: "plaignantId", references: "id")
+  motif: String! @col(name: "motif")
+  statut: StatutLitige! @col(name: "statut") @default(value: OUVERT)
+  resolution: String @col(name: "resolution")
+  createdAt: Timestamp! @col(name: "created_at") @default(expr: "request.time")
+  updatedAt: Timestamp! @col(name: "updated_at") @default(expr: "request.time")
+}
+
+enum TypeFrais {
+  INSCRIPTION_PARCELLE
+  DUPLICATA_DOCUMENT
+  AUTRE
+}
+
+type FraisEnregistrement @table(name: "frais_enregistrement") {
+  id: Int! @unique @col(dataType: "serial")
+  parcelleId: Int! @col(name: "parcelle_id")
+  parcelle: Parcelle! @ref(fields: "parcelleId", references: "id")
+  typeFrais: TypeFrais! @col(name: "type_frais")
+  montant: Float! @col(name: "montant")
+  statut: StatutPaiement! @col(name: "statut") @default(value: EN_ATTENTE)
+  motifRejet: String @col(name: "motif_rejet")
+  createdAt: Timestamp! @col(name: "created_at") @default(expr: "request.time")
+  updatedAt: Timestamp! @col(name: "updated_at") @default(expr: "request.time")
+}

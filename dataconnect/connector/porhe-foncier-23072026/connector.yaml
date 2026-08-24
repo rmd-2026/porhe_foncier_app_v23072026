@@ -1,0 +1,5 @@
+connectorId: "porhe-foncier-23072026"
+generate:
+  dartSdk:
+    outputDir: "../../../lib/core/dataconnect_generated"
+    package: "porhe_foncier23072026"

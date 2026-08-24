@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "224979078641",
+    "project_id": "porhe-foncier-23072026",
+    "storage_bucket": "porhe-foncier-23072026.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224979078641:android:a9f35e1b54612d3023c850",
+        "android_client_info": {
+          "package_name": "com.lms.app.v23072026.porhe_foncier_app_23072026"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "224979078641-48ak7hl0gev6l2a6coconn2s6c9j694f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lms.app.v23072026.porhe_foncier_app_23072026",
+            "certificate_hash": "c82f53fc516c05bf8c8e9c784b655f477acaaf67"
+          }
+        },
+        {
+          "client_id": "224979078641-ptc6o4n506id8rkfpbcdcctvuh8bdt6p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNpJTXRkHlWm1zFDM7OGgj-C1IilGFNo4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "224979078641-ptc6o4n506id8rkfpbcdcctvuh8bdt6p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

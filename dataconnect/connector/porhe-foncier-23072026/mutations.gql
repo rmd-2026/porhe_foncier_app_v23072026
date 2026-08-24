@@ -1,0 +1,789 @@
+# ==========================================================
+# 0. RÉFÉRENCE — seedRegions / seedCommunes / seedSousPrefectures
+# ==========================================================
+mutation seedRegions @auth(level: USER) {
+    region_insertMany(data: [
+        { id: 1, nom: "Boke" },
+        { id: 2, nom: "Conakry" },
+        { id: 3, nom: "Faranah" },
+        { id: 4, nom: "Kankan" },
+        { id: 5, nom: "Kindia" },
+        { id: 6, nom: "Labe" },
+        { id: 7, nom: "Mamou" },
+        { id: 8, nom: "N'Zerekore" }
+    ])
+}
+
+mutation seedCommunes @auth(level: USER) {
+    commune_insertMany(data: [
+        { id: 1, nom: "BEYLA", regionId: 8 },
+        { id: 2, nom: "BOFFA", regionId: 1 },
+        { id: 3, nom: "BOKE", regionId: 1 },
+        { id: 4, nom: "CONAKRY", regionId: 2 },
+        { id: 5, nom: "COYAH", regionId: 5 },
+        { id: 6, nom: "DABOLA", regionId: 3 },
+        { id: 7, nom: "DALABA", regionId: 7 },
+        { id: 8, nom: "DINGUIRAYE", regionId: 3 },
+        { id: 9, nom: "DUBREKA", regionId: 5 },
+        { id: 10, nom: "FARANAH", regionId: 3 },
+        { id: 11, nom: "FORECARIAH", regionId: 5 },
+        { id: 12, nom: "FRIA", regionId: 1 },
+        { id: 13, nom: "GAOUAL", regionId: 1 },
+        { id: 14, nom: "GUECKEDOU", regionId: 8 },
+        { id: 15, nom: "KANKAN", regionId: 4 },
+        { id: 16, nom: "KEROUANE", regionId: 4 },
+        { id: 17, nom: "KINDIA", regionId: 5 },
+        { id: 18, nom: "KISSIDOUGOU", regionId: 3 },
+        { id: 19, nom: "KOUBIA", regionId: 6 },
+        { id: 20, nom: "KOUNDARA", regionId: 1 },
+        { id: 21, nom: "KOUROUSSA", regionId: 4 },
+        { id: 22, nom: "LABE", regionId: 6 },
+        { id: 23, nom: "LELOUMA", regionId: 6 },
+        { id: 24, nom: "LOLA", regionId: 8 },
+        { id: 25, nom: "MACENTA", regionId: 8 },
+        { id: 26, nom: "MALI", regionId: 6 },
+        { id: 27, nom: "MAMOU", regionId: 7 },
+        { id: 28, nom: "MANDIANA", regionId: 4 },
+        { id: 29, nom: "N'ZEREKORE", regionId: 8 },
+        { id: 30, nom: "PITA", regionId: 7 },
+        { id: 31, nom: "SIGUIRI", regionId: 4 },
+        { id: 32, nom: "TELIMELE", regionId: 5 },
+        { id: 33, nom: "TOUGUE", regionId: 6 },
+        { id: 34, nom: "YOMOU", regionId: 8 }
+    ])
+}
+
+mutation seedSousPrefectures @auth(level: USER) {
+    sousPrefecture_insertMany(data: [
+        { id: 1, nom: "Boffa-Centre", communeId: 2 },
+        { id: 2, nom: "Colia", communeId: 2 },
+        { id: 3, nom: "Doupro", communeId: 2 },
+        { id: 4, nom: "Koba-Tatema", communeId: 2 },
+        { id: 5, nom: "Lisso", communeId: 2 },
+        { id: 6, nom: "Mankountan", communeId: 2 },
+        { id: 7, nom: "Tamita", communeId: 2 },
+        { id: 8, nom: "Tougnifili", communeId: 2 },
+        { id: 9, nom: "Bintimodiya", communeId: 3 },
+        { id: 10, nom: "Boke-Centre", communeId: 3 },
+        { id: 11, nom: "Dabiss", communeId: 3 },
+        { id: 12, nom: "Kamsar", communeId: 3 },
+        { id: 13, nom: "Kanfarande", communeId: 3 },
+        { id: 14, nom: "Kolaboui", communeId: 3 },
+        { id: 15, nom: "Malapouyah", communeId: 3 },
+        { id: 16, nom: "Sangaredi", communeId: 3 },
+        { id: 17, nom: "Sansale", communeId: 3 },
+        { id: 18, nom: "Tanene", communeId: 3 },
+        { id: 19, nom: "Baguinet", communeId: 12 },
+        { id: 20, nom: "Banguingny", communeId: 12 },
+        { id: 21, nom: "Fria-Centre", communeId: 12 },
+        { id: 22, nom: "Tormelin", communeId: 12 },
+        { id: 23, nom: "Foulamory", communeId: 13 },
+        { id: 24, nom: "Gaoual-Centre", communeId: 13 },
+        { id: 25, nom: "Kakony", communeId: 13 },
+        { id: 26, nom: "Koumbia", communeId: 13 },
+        { id: 27, nom: "Kounsitel", communeId: 13 },
+        { id: 28, nom: "Malanta", communeId: 13 },
+        { id: 29, nom: "Touba", communeId: 13 },
+        { id: 30, nom: "Wendou M'bour", communeId: 13 },
+        { id: 31, nom: "Guingan", communeId: 20 },
+        { id: 32, nom: "Kamaby", communeId: 20 },
+        { id: 33, nom: "Koundara-Centre", communeId: 20 },
+        { id: 34, nom: "Sambailo", communeId: 20 },
+        { id: 35, nom: "Sareboido", communeId: 20 },
+        { id: 36, nom: "Termesse", communeId: 20 },
+        { id: 37, nom: "Youkounkoun", communeId: 20 },
+        { id: 38, nom: "Dixinn", communeId: 4 },
+        { id: 39, nom: "Kaloum", communeId: 4 },
+        { id: 40, nom: "Matam", communeId: 4 },
+        { id: 41, nom: "Matoto", communeId: 4 },
+        { id: 42, nom: "Ratoma", communeId: 4 },
+        { id: 43, nom: "Kassa", communeId: 4 },
+        { id: 44, nom: "Arfamoussaya", communeId: 6 },
+        { id: 45, nom: "Banko", communeId: 6 },
+        { id: 46, nom: "Bissikrima", communeId: 6 },
+        { id: 47, nom: "Dabola-centre", communeId: 6 },
+        { id: 48, nom: "Dogomet", communeId: 6 },
+        { id: 49, nom: "Kankama", communeId: 6 },
+        { id: 50, nom: "Kindoye", communeId: 6 },
+        { id: 51, nom: "Konindou", communeId: 6 },
+        { id: 52, nom: "N'Dema", communeId: 6 },
+        { id: 53, nom: "Banora", communeId: 8 },
+        { id: 54, nom: "Dialakoro", communeId: 8 },
+        { id: 55, nom: "Diatifere", communeId: 8 },
+        { id: 56, nom: "Dinguiraye-centre", communeId: 8 },
+        { id: 57, nom: "Gagnakali", communeId: 8 },
+        { id: 58, nom: "Kalinko", communeId: 8 },
+        { id: 59, nom: "Lansanya", communeId: 8 },
+        { id: 60, nom: "Selouma", communeId: 8 },
+        { id: 61, nom: "Ballaya", communeId: 10 },
+        { id: 62, nom: "Bambaya", communeId: 10 },
+        { id: 63, nom: "Bantoun", communeId: 10 },
+        { id: 64, nom: "Banian", communeId: 10 },
+        { id: 65, nom: "Beindou", communeId: 10 },
+        { id: 66, nom: "Dantiliy", communeId: 10 },
+        { id: 67, nom: "Faranah-centre", communeId: 10 },
+        { id: 68, nom: "Gnaleah", communeId: 10 },
+        { id: 69, nom: "Heremakonon", communeId: 10 },
+        { id: 70, nom: "Kobikoro", communeId: 10 },
+        { id: 71, nom: "Marela", communeId: 10 },
+        { id: 72, nom: "Passayah", communeId: 10 },
+        { id: 73, nom: "sandeniah", communeId: 10 },
+        { id: 74, nom: "Songoyah", communeId: 10 },
+        { id: 75, nom: "Tindo", communeId: 10 },
+        { id: 76, nom: "Tiro", communeId: 10 },
+        { id: 77, nom: "Albadariah", communeId: 18 },
+        { id: 78, nom: "Banama", communeId: 18 },
+        { id: 79, nom: "Bardou", communeId: 18 },
+        { id: 80, nom: "Beindou", communeId: 18 },
+        { id: 81, nom: "Fermesadou", communeId: 18 },
+        { id: 82, nom: "Firawa (Yomadou)", communeId: 18 },
+        { id: 83, nom: "Gbangbadou", communeId: 18 },
+        { id: 84, nom: "kissidougou Centre", communeId: 18 },
+        { id: 85, nom: "Koundiatou", communeId: 18 },
+        { id: 86, nom: "Manfran", communeId: 18 },
+        { id: 87, nom: "Sangardo", communeId: 18 },
+        { id: 88, nom: "Yende-Millimou", communeId: 18 },
+        { id: 89, nom: "Yombiro", communeId: 18 },
+        { id: 90, nom: "Balandougou", communeId: 15 },
+        { id: 91, nom: "Bate-nafadji", communeId: 15 },
+        { id: 92, nom: "Boula", communeId: 15 },
+        { id: 93, nom: "Gberedou-Baranama", communeId: 15 },
+        { id: 94, nom: "Kankan-centre", communeId: 15 },
+        { id: 95, nom: "Karifamoriyah", communeId: 15 },
+        { id: 96, nom: "Koumban", communeId: 15 },
+        { id: 97, nom: "Mamouroudou", communeId: 15 },
+        { id: 98, nom: "Missamana", communeId: 15 },
+        { id: 99, nom: "Moribayah", communeId: 15 },
+        { id: 100, nom: "Sabadou-Baranama", communeId: 15 },
+        { id: 101, nom: "Tinti-Oulen", communeId: 15 },
+        { id: 102, nom: "Tokounou", communeId: 15 },
+        { id: 103, nom: "Banankoro", communeId: 16 },
+        { id: 104, nom: "Damaro", communeId: 16 },
+        { id: 105, nom: "Kereouane centre", communeId: 16 },
+        { id: 106, nom: "Komodou", communeId: 16 },
+        { id: 107, nom: "Kounsankoro", communeId: 16 },
+        { id: 108, nom: "Linko", communeId: 16 },
+        { id: 109, nom: "Sibiribaro", communeId: 16 },
+        { id: 110, nom: "Soromaya", communeId: 16 },
+        { id: 111, nom: "Babila", communeId: 21 },
+        { id: 112, nom: "Balato", communeId: 21 },
+        { id: 113, nom: "Banfele", communeId: 21 },
+        { id: 114, nom: "Baro", communeId: 21 },
+        { id: 115, nom: "Cissela", communeId: 21 },
+        { id: 116, nom: "Douako", communeId: 21 },
+        { id: 117, nom: "Doura", communeId: 21 },
+        { id: 118, nom: "Kiniero", communeId: 21 },
+        { id: 119, nom: "Komola-Koura", communeId: 21 },
+        { id: 120, nom: "Koumana", communeId: 21 },
+        { id: 121, nom: "Kouroussa centre", communeId: 21 },
+        { id: 122, nom: "Sanguiana", communeId: 21 },
+        { id: 123, nom: "Balandougouba", communeId: 28 },
+        { id: 124, nom: "Dialakoro", communeId: 28 },
+        { id: 125, nom: "Faralako", communeId: 28 },
+        { id: 126, nom: "Kantoumanina", communeId: 28 },
+        { id: 127, nom: "Kinieran", communeId: 28 },
+        { id: 128, nom: "Kondianakoro", communeId: 28 },
+        { id: 129, nom: "Koundian", communeId: 28 },
+        { id: 130, nom: "Mandiana-centre", communeId: 28 },
+        { id: 131, nom: "Morodou", communeId: 28 },
+        { id: 132, nom: "Niantania", communeId: 28 },
+        { id: 133, nom: "Saladou", communeId: 28 },
+        { id: 134, nom: "Sansando", communeId: 28 },
+        { id: 135, nom: "Bankon", communeId: 31 },
+        { id: 136, nom: "Doko", communeId: 31 },
+        { id: 137, nom: "Franwalia", communeId: 31 },
+        { id: 138, nom: "Kiniebakoura", communeId: 31 },
+        { id: 139, nom: "Kintinian", communeId: 31 },
+        { id: 140, nom: "Malea", communeId: 31 },
+        { id: 141, nom: "Naboun", communeId: 31 },
+        { id: 142, nom: "Niagassola", communeId: 31 },
+        { id: 143, nom: "Niandankoro", communeId: 31 },
+        { id: 144, nom: "Norassoba", communeId: 31 },
+        { id: 145, nom: "Nounkounkan", communeId: 31 },
+        { id: 146, nom: "Siguiri-centre", communeId: 31 },
+        { id: 147, nom: "Siguirini", communeId: 31 },
+        { id: 148, nom: "Coyah centre", communeId: 5 },
+        { id: 149, nom: "Kouriya", communeId: 5 },
+        { id: 150, nom: "Maneah", communeId: 5 },
+        { id: 151, nom: "Wonkifong", communeId: 5 },
+        { id: 152, nom: "Badi", communeId: 9 },
+        { id: 153, nom: "Dubreka-centre", communeId: 9 },
+        { id: 154, nom: "Falessade", communeId: 9 },
+        { id: 155, nom: "Khorira", communeId: 9 },
+        { id: 156, nom: "Ouassou", communeId: 9 },
+        { id: 157, nom: "Tanene", communeId: 9 },
+        { id: 158, nom: "Tondon", communeId: 9 },
+        { id: 159, nom: "Alassoya", communeId: 11 },
+        { id: 160, nom: "Benty", communeId: 11 },
+        { id: 161, nom: "Farmoriah", communeId: 11 },
+        { id: 162, nom: "Forecareah Centre", communeId: 11 },
+        { id: 163, nom: "Kaback", communeId: 11 },
+        { id: 164, nom: "Kakossa", communeId: 11 },
+        { id: 165, nom: "Kallia", communeId: 11 },
+        { id: 166, nom: "Maferenya", communeId: 11 },
+        { id: 167, nom: "Moussaya", communeId: 11 },
+        { id: 168, nom: "Sikhourou", communeId: 11 },
+        { id: 169, nom: "Bangouyah", communeId: 17 },
+        { id: 170, nom: "Damankanyah", communeId: 17 },
+        { id: 171, nom: "Friguiagbe", communeId: 17 },
+        { id: 172, nom: "Kindia centre", communeId: 17 },
+        { id: 173, nom: "Kolente", communeId: 17 },
+        { id: 174, nom: "Lynsan", communeId: 17 },
+        { id: 175, nom: "Madina Oula", communeId: 17 },
+        { id: 176, nom: "Mambiya", communeId: 17 },
+        { id: 177, nom: "Molota", communeId: 17 },
+        { id: 178, nom: "Samayah", communeId: 17 },
+        { id: 179, nom: "Sougueta", communeId: 17 },
+        { id: 180, nom: "Bourouwal", communeId: 32 },
+        { id: 181, nom: "Daramagnaky", communeId: 32 },
+        { id: 182, nom: "Gougoudje", communeId: 32 },
+        { id: 183, nom: "Koba", communeId: 32 },
+        { id: 184, nom: "Kollet", communeId: 32 },
+        { id: 185, nom: "Konsotamy", communeId: 32 },
+        { id: 186, nom: "Missira", communeId: 32 },
+        { id: 187, nom: "Santou", communeId: 32 },
+        { id: 188, nom: "Sarekaly", communeId: 32 },
+        { id: 189, nom: "Sinta", communeId: 32 },
+        { id: 190, nom: "Sogolon", communeId: 32 },
+        { id: 191, nom: "Tarihoye", communeId: 32 },
+        { id: 192, nom: "Telimele centre", communeId: 32 },
+        { id: 193, nom: "Thionthian", communeId: 32 },
+        { id: 194, nom: "Fafaya", communeId: 19 },
+        { id: 195, nom: "Gadha Woundou", communeId: 19 },
+        { id: 196, nom: "Koubia centre", communeId: 19 },
+        { id: 197, nom: "Matakaou", communeId: 19 },
+        { id: 198, nom: "Missira", communeId: 19 },
+        { id: 199, nom: "Pilimini", communeId: 19 },
+        { id: 200, nom: "Dalein", communeId: 22 },
+        { id: 201, nom: "Daralabe", communeId: 22 },
+        { id: 202, nom: "Diari", communeId: 22 },
+        { id: 203, nom: "Dionfo", communeId: 22 },
+        { id: 204, nom: "Garambe", communeId: 22 },
+        { id: 205, nom: "Hafia", communeId: 22 },
+        { id: 206, nom: "Kaalan", communeId: 22 },
+        { id: 207, nom: "Kouramangui", communeId: 22 },
+        { id: 208, nom: "Labe centre", communeId: 22 },
+        { id: 209, nom: "Noussy", communeId: 22 },
+        { id: 210, nom: "Popodara", communeId: 22 },
+        { id: 211, nom: "Sannoun", communeId: 22 },
+        { id: 212, nom: "Taranbaly", communeId: 22 },
+        { id: 213, nom: "Tountouroun", communeId: 22 },
+        { id: 214, nom: "Balaya", communeId: 23 },
+        { id: 215, nom: "Djountou", communeId: 23 },
+        { id: 216, nom: "Herico", communeId: 23 },
+        { id: 217, nom: "Korbe", communeId: 23 },
+        { id: 218, nom: "Lafou", communeId: 23 },
+        { id: 219, nom: "Lelouma centre", communeId: 23 },
+        { id: 220, nom: "Linsansaran", communeId: 23 },
+        { id: 221, nom: "Manda", communeId: 23 },
+        { id: 222, nom: "Parawol", communeId: 23 },
+        { id: 223, nom: "Sagale", communeId: 23 },
+        { id: 224, nom: "Tyanguel-Bori", communeId: 23 },
+        { id: 225, nom: "Balaki", communeId: 26 },
+        { id: 226, nom: "Donghol Sigon", communeId: 26 },
+        { id: 227, nom: "Dougountouny", communeId: 26 },
+        { id: 228, nom: "Fougou", communeId: 26 },
+        { id: 229, nom: "Gayah", communeId: 26 },
+        { id: 230, nom: "Hidayatou", communeId: 26 },
+        { id: 231, nom: "Lebekere", communeId: 26 },
+        { id: 232, nom: "Madina Wora", communeId: 26 },
+        { id: 233, nom: "Mali centre", communeId: 26 },
+        { id: 234, nom: "Salambande", communeId: 26 },
+        { id: 235, nom: "Telire", communeId: 26 },
+        { id: 236, nom: "Touba", communeId: 26 },
+        { id: 237, nom: "Yembereng", communeId: 26 },
+        { id: 238, nom: "Fatako", communeId: 33 },
+        { id: 239, nom: "Fello Koundoua", communeId: 33 },
+        { id: 240, nom: "Kansangui", communeId: 33 },
+        { id: 241, nom: "Kolangui", communeId: 33 },
+        { id: 242, nom: "Kollet", communeId: 33 },
+        { id: 243, nom: "Konah", communeId: 33 },
+        { id: 244, nom: "Kouratongo", communeId: 33 },
+        { id: 245, nom: "Koyin", communeId: 33 },
+        { id: 246, nom: "Tangaly", communeId: 33 },
+        { id: 247, nom: "Tougue centre", communeId: 33 },
+        { id: 248, nom: "Bodie", communeId: 7 },
+        { id: 249, nom: "Dalaba centre", communeId: 7 },
+        { id: 250, nom: "Ditinn", communeId: 7 },
+        { id: 251, nom: "Kaalan", communeId: 7 },
+        { id: 252, nom: "Kankalabe", communeId: 7 },
+        { id: 253, nom: "Kebali", communeId: 7 },
+        { id: 254, nom: "Koba", communeId: 7 },
+        { id: 255, nom: "Mafara", communeId: 7 },
+        { id: 256, nom: "Mitty", communeId: 7 },
+        { id: 257, nom: "Mombeyah", communeId: 7 },
+        { id: 258, nom: "Bouliwel", communeId: 27 },
+        { id: 259, nom: "Dounet", communeId: 27 },
+        { id: 260, nom: "Gongoret", communeId: 27 },
+        { id: 261, nom: "Kegneko", communeId: 27 },
+        { id: 262, nom: "Konkoure", communeId: 27 },
+        { id: 263, nom: "Mamou centre", communeId: 27 },
+        { id: 264, nom: "Nyagara", communeId: 27 },
+        { id: 265, nom: "Oure Kaba", communeId: 27 },
+        { id: 266, nom: "Poredaka", communeId: 27 },
+        { id: 267, nom: "Saramoussaya", communeId: 27 },
+        { id: 268, nom: "Soyah", communeId: 27 },
+        { id: 269, nom: "Teguereya", communeId: 27 },
+        { id: 270, nom: "Timbo", communeId: 27 },
+        { id: 271, nom: "Tolo", communeId: 27 },
+        { id: 272, nom: "Bantignel", communeId: 30 },
+        { id: 273, nom: "Bourouwal Tappe", communeId: 30 },
+        { id: 274, nom: "Dongol Touma", communeId: 30 },
+        { id: 275, nom: "Gongore", communeId: 30 },
+        { id: 276, nom: "Ley-Miro", communeId: 30 },
+        { id: 277, nom: "Maci", communeId: 30 },
+        { id: 278, nom: "Ninguelande", communeId: 30 },
+        { id: 279, nom: "Pita centre", communeId: 30 },
+        { id: 280, nom: "Sangareah", communeId: 30 },
+        { id: 281, nom: "Sintaly", communeId: 30 },
+        { id: 282, nom: "Timbi-Madina", communeId: 30 },
+        { id: 283, nom: "Timbi-Touny", communeId: 30 },
+        { id: 284, nom: "Beyla centre", communeId: 1 },
+        { id: 285, nom: "Boola", communeId: 1 },
+        { id: 286, nom: "Diarraguerela", communeId: 1 },
+        { id: 287, nom: "Diassadou", communeId: 1 },
+        { id: 288, nom: "Fouala", communeId: 1 },
+        { id: 289, nom: "Gbackedou", communeId: 1 },
+        { id: 290, nom: "Gbessoba", communeId: 1 },
+        { id: 291, nom: "karala", communeId: 1 },
+        { id: 292, nom: "Koumandou", communeId: 1 },
+        { id: 293, nom: "Mousadou", communeId: 1 },
+        { id: 294, nom: "Nionsomoridou", communeId: 1 },
+        { id: 295, nom: "Samana", communeId: 1 },
+        { id: 296, nom: "Sinko", communeId: 1 },
+        { id: 297, nom: "Sokourala", communeId: 1 },
+        { id: 298, nom: "Bolodou", communeId: 14 },
+        { id: 299, nom: "Fangamadou", communeId: 14 },
+        { id: 300, nom: "Gueckedou centre", communeId: 14 },
+        { id: 301, nom: "Guendembou", communeId: 14 },
+        { id: 302, nom: "Kassadou", communeId: 14 },
+        { id: 303, nom: "Koundou", communeId: 14 },
+        { id: 304, nom: "Nongoa", communeId: 14 },
+        { id: 305, nom: "Ouende Kenema", communeId: 14 },
+        { id: 306, nom: "Tekoulo", communeId: 14 },
+        { id: 307, nom: "Termessadou Djibo", communeId: 14 },
+        { id: 308, nom: "Bossou", communeId: 24 },
+        { id: 309, nom: "Foumbadou", communeId: 24 },
+        { id: 310, nom: "Gama Berema", communeId: 24 },
+        { id: 311, nom: "Gueassou", communeId: 24 },
+        { id: 312, nom: "Kokota", communeId: 24 },
+        { id: 313, nom: "Laine", communeId: 24 },
+        { id: 314, nom: "Lola centre", communeId: 24 },
+        { id: 315, nom: "N'Zoo", communeId: 24 },
+        { id: 316, nom: "Tounkarata", communeId: 24 },
+        { id: 317, nom: "Balizia", communeId: 25 },
+        { id: 318, nom: "Binikala", communeId: 25 },
+        { id: 319, nom: "Bofossou", communeId: 25 },
+        { id: 320, nom: "Daro", communeId: 25 },
+        { id: 321, nom: "Fassankoni", communeId: 25 },
+        { id: 322, nom: "kouankan", communeId: 25 },
+        { id: 323, nom: "Koyama", communeId: 25 },
+        { id: 324, nom: "Macenta centre", communeId: 25 },
+        { id: 325, nom: "N'Zebela", communeId: 25 },
+        { id: 326, nom: "Oremai", communeId: 25 },
+        { id: 327, nom: "Panziazou", communeId: 25 },
+        { id: 328, nom: "Semgbedou", communeId: 25 },
+        { id: 329, nom: "Seredou", communeId: 25 },
+        { id: 330, nom: "Vaseredou", communeId: 25 },
+        { id: 331, nom: "Watanka", communeId: 25 },
+        { id: 332, nom: "Bounouma", communeId: 29 },
+        { id: 333, nom: "Gouecke", communeId: 29 },
+        { id: 334, nom: "Kobela", communeId: 29 },
+        { id: 335, nom: "Koropara", communeId: 29 },
+        { id: 336, nom: "Koule", communeId: 29 },
+        { id: 337, nom: "N'Zerekore centre", communeId: 29 },
+        { id: 338, nom: "Pale", communeId: 29 },
+        { id: 339, nom: "Samoe", communeId: 29 },
+        { id: 340, nom: "Soulouma", communeId: 29 },
+        { id: 341, nom: "Womey", communeId: 29 },
+        { id: 342, nom: "Yalenzou", communeId: 29 },
+        { id: 343, nom: "Banie", communeId: 34 },
+        { id: 344, nom: "Bheta", communeId: 34 },
+        { id: 345, nom: "Bignamou", communeId: 34 },
+        { id: 346, nom: "Bowe", communeId: 34 },
+        { id: 347, nom: "Diecke", communeId: 34 },
+        { id: 348, nom: "Pela", communeId: 34 },
+        { id: 349, nom: "Yomou centre", communeId: 34 }
+    ])
+}
+# ==========================================================
+# 1. IDENTITÉ — Utilisateur
+# ==========================================================
+
+mutation upsertUtilisateurParFirebaseUid(
+    $firebaseUid: String!, $nom: String, $prenom: String, $civilite: Civilite, $dateNaissance: Date,
+    $lieuNaissance: String, $nationalite: String, $typePieceIdentite: TypePieceIdentite,
+    $numeroPieceIdentite: String, $pieceIdentiteValideDe: Date, $pieceIdentiteValideA: Date,
+    $email: String, $telephone: String, $adresse: String, $photoUrl: String
+) @auth(level: USER) {
+    utilisateur_upsert(data: {
+        firebaseUid: $firebaseUid, nom: $nom, prenom: $prenom, civilite: $civilite, dateNaissance: $dateNaissance,
+        lieuNaissance: $lieuNaissance, nationalite: $nationalite, typePieceIdentite: $typePieceIdentite,
+        numeroPieceIdentite: $numeroPieceIdentite, pieceIdentiteValideDe: $pieceIdentiteValideDe,
+        pieceIdentiteValideA: $pieceIdentiteValideA, email: $email, telephone: $telephone, adresse: $adresse,
+        photoUrl: $photoUrl, updatedAt_expr: "request.time"
+    })
+}
+
+mutation mettreAJourProfil(
+    $firebaseUid: String!, $nom: String, $prenom: String, $civilite: Civilite, $dateNaissance: Date,
+    $lieuNaissance: String, $nationalite: String, $typePieceIdentite: TypePieceIdentite,
+    $numeroPieceIdentite: String, $pieceIdentiteValideDe: Date, $pieceIdentiteValideA: Date,
+    $telephone: String, $adresse: String, $photoUrl: String
+) @auth(level: USER) {
+    utilisateur_update(key: { firebaseUid: $firebaseUid }, data: {
+        nom: $nom, prenom: $prenom, civilite: $civilite, dateNaissance: $dateNaissance,
+        lieuNaissance: $lieuNaissance, nationalite: $nationalite, typePieceIdentite: $typePieceIdentite,
+        numeroPieceIdentite: $numeroPieceIdentite, pieceIdentiteValideDe: $pieceIdentiteValideDe,
+        pieceIdentiteValideA: $pieceIdentiteValideA, telephone: $telephone, adresse: $adresse, photoUrl: $photoUrl,
+        updatedAt_expr: "request.time"
+    })
+}
+
+# ==========================================================
+# 2. RBAC — UtilisateurRole
+# ==========================================================
+
+mutation assignerRoleUtilisateurParDefaut($utilisateurId: Int!) @auth(level: USER) {
+  utilisateurRole_upsert(data: { utilisateurId: $utilisateurId, nomRole: PROPRIETAIRE, communeId: null, updatedAt_expr: "request.time" })
+}
+
+mutation assignerRoleGlobal($utilisateurId: Int!, $nomRole: NomRole!) @auth(level: USER) {
+  utilisateurRole_upsert(data: { utilisateurId: $utilisateurId, nomRole: $nomRole, communeId: null, updatedAt_expr: "request.time" })
+}
+
+mutation assignerRoleCommune($utilisateurId: Int!, $nomRole: NomRole!, $communeId: Int!) @auth(level: USER) {
+  utilisateurRole_upsert(data: { utilisateurId: $utilisateurId, nomRole: $nomRole, communeId: $communeId, updatedAt_expr: "request.time" })
+}
+
+# Approuve un utilisateur — KYC réussi OU réactivation après désactivation.
+# motifStatut toujours effacé (null), quel que soit l'état précédent.
+mutation validerUtilisateur($firebaseUid: String!) @auth(level: USER) {
+    utilisateur_update(
+        key: { firebaseUid: $firebaseUid }
+        data: { statutCompte: ACTIF, motifStatut: null, updatedAt_expr: "request.time" }
+    )
+}
+
+# Désactive un utilisateur — échec KYC OU désactivation manuelle
+# ultérieure. Motif obligatoire pour traçabilité, un seul chemin pour
+# les deux cas d'usage.
+mutation desactiverUtilisateur($firebaseUid: String!, $motifStatut: String!) @auth(level: USER) {
+    utilisateur_update(
+        key: { firebaseUid: $firebaseUid }
+        data: { statutCompte: DESACTIVE, motifStatut: $motifStatut, updatedAt_expr: "request.time" }
+    )
+}
+# ==========================================================
+# 3. AUDIT / HISTORIQUE — JournalAudit
+# ==========================================================
+
+  mutation enregistrerAudit(
+  $typeEntite: String!, $entiteId: Int!, $action: String!, $acteurFirebaseUid: String!,
+  $motif: String, $communeId: Int, $donneesAvant: String, $donneesApres: String
+) @auth(level: USER) {
+  journalAudit_insert(data: {
+    typeEntite: $typeEntite, entiteId: $entiteId, action: $action, acteurFirebaseUid: $acteurFirebaseUid,
+    motif: $motif, communeId: $communeId, donneesAvant: $donneesAvant, donneesApres: $donneesApres
+  })
+}
+
+# ==========================================================
+# 4. PARCELLE
+# ==========================================================
+
+mutation creerParcelle(
+    $codeParcelle: String!, $utilisateurId: Int!, $regionId: Int!, $communeId: Int!, $sousPrefectureId: Int,
+    $superficieM2: Float, $latitude: Float, $longitude: Float, $adresseTerrain: String, $qrCode: String
+) @auth(level: USER) {
+    parcelle_insert(data: {
+        codeParcelle: $codeParcelle, utilisateurId: $utilisateurId, regionId: $regionId, communeId: $communeId,
+        sousPrefectureId: $sousPrefectureId, superficieM2: $superficieM2, latitude: $latitude,
+        longitude: $longitude, adresseTerrain: $adresseTerrain, qrCode: $qrCode
+    })
+}
+
+mutation mettreAJourParcelle(
+  $id: Int!, $superficieM2: Float, $latitude: Float, $longitude: Float, $adresseTerrain: String
+) @auth(level: USER) {
+  parcelle_update(id: $id, data: {
+    superficieM2: $superficieM2, latitude: $latitude, longitude: $longitude, adresseTerrain: $adresseTerrain,
+    updatedAt_expr: "request.time"
+  })
+}
+
+mutation validerParcelle($id: Int!) @auth(level: USER) {
+    parcelle_update(id: $id, data: { statut: VALIDEE, motifRejet: null, updatedAt_expr: "request.time" })
+}
+
+mutation rejeterParcelle($id: Int!, $motifRejet: String!) @auth(level: USER) {
+    parcelle_update(id: $id, data: { statut: REJETEE, motifRejet: $motifRejet, updatedAt_expr: "request.time" })
+}
+
+mutation rejeterParcelleAvecMotif($id: Int!, $motifRejet: String!) @auth(level: USER) {
+    parcelle_update(id: $id, data: { statut: REJETEE, motifRejet: $motifRejet, updatedAt_expr: "request.time" })
+}
+
+mutation resoumettreParcelle($id: Int!) @auth(level: USER) {
+    parcelle_update(id: $id, data: { statut: EN_ATTENTE_VALIDATION, motifRejet: null, updatedAt_expr: "request.time" })
+}
+
+mutation transfererParcelleEntreCommunes(
+    $id: Int!,
+    $nouvelleRegionId: Int!,
+    $nouvelleCommuneId: Int!,
+    $nouvelleSousPrefectureId: Int
+) @auth(level: USER) {
+    parcelle_update(
+        id: $id,
+        data: {
+            regionId: $nouvelleRegionId,
+            communeId: $nouvelleCommuneId,
+            sousPrefectureId: $nouvelleSousPrefectureId,
+            updatedAt_expr: "request.time"
+        }
+    )
+}
+
+mutation supprimerParcelle($id: Int!) @auth(level: USER) {
+  parcelle_delete(id: $id)
+}
+
+# ==========================================================
+# 5. TRANSACTION FONCIÈRE
+# ==========================================================
+
+mutation creerTransaction(
+  $parcelleId: Int!, $vendeurId: Int!, $acheteurId: Int!,
+  $typeTransaction: TypeTransaction!, $montant: Float, $dateTransaction: Date!
+) @auth(level: USER) {
+  transactionFonciere_insert(data: {
+    parcelleId: $parcelleId, vendeurId: $vendeurId, acheteurId: $acheteurId,
+    typeTransaction: $typeTransaction, montant: $montant, dateTransaction: $dateTransaction
+  })
+}
+
+mutation validerTransaction($id: Int!, $parcelleId: Int!, $nouveauUtilisateurId: Int!) @transaction @auth(level: USER) {
+    transactionFonciere_update(id: $id, data: { statut: VALIDEE, motifRejet: null, updatedAt_expr: "request.time" })
+    parcelle_update(id: $parcelleId, data: { utilisateurId: $nouveauUtilisateurId, updatedAt_expr: "request.time" })
+}
+
+mutation rejeterTransactionAvecMotif($id: Int!, $motifRejet: String!) @auth(level: USER) {
+    transactionFonciere_update(id: $id, data: { statut: REJETEE, motifRejet: $motifRejet, updatedAt_expr: "request.time" })
+}
+
+mutation resoumettreTransaction($id: Int!) @auth(level: USER) {
+    transactionFonciere_update(id: $id, data: { statut: EN_ATTENTE_VALIDATION, motifRejet: null, updatedAt_expr: "request.time" })
+}
+
+# ==========================================================
+# 6. DOCUMENT PARCELLE
+# ==========================================================
+
+mutation ajouterDocument(
+  $parcelleId: Int!, $typeDocument: TypeDocument!, $nomFichier: String!,
+  $urlStockage: String!, $uploadeParFirebaseUid: String!
+) @auth(level: USER) {
+  documentParcelle_insert(data: {
+    parcelleId: $parcelleId, typeDocument: $typeDocument, nomFichier: $nomFichier,
+    urlStockage: $urlStockage, uploadeParFirebaseUid: $uploadeParFirebaseUid
+  })
+}
+
+mutation supprimerDocument($id: Int!) @auth(level: USER) {
+  documentParcelle_delete(id: $id)
+}
+
+# ==========================================================
+# 7. TAXE FONCIÈRE
+# ==========================================================
+
+mutation creerTaxeFonciere($parcelleId: Int!, $anneeFiscale: Int!, $montantDu: Float!, $dateEcheance: Date!) @auth(level: USER) {
+  taxeFonciere_insert(data: { parcelleId: $parcelleId, anneeFiscale: $anneeFiscale, montantDu: $montantDu, dateEcheance: $dateEcheance })
+}
+
+mutation marquerTaxePayee($id: Int!) @auth(level: USER) {
+  taxeFonciere_update(id: $id, data: { statut: PAYE, updatedAt_expr: "request.time" })
+}
+
+mutation marquerTaxeEnRetard($id: Int!) @auth(level: USER) {
+  taxeFonciere_update(id: $id, data: { statut: EN_RETARD, updatedAt_expr: "request.time" })
+}
+
+mutation mettreAJourTaxeFonciere(
+    $id: Int!,
+    $anneeFiscale: Int,
+    $montantDu: Float,
+    $dateEcheance: Date
+) @auth(level: USER) {
+    taxeFonciere_update(
+        id: $id,
+        data: {
+            anneeFiscale: $anneeFiscale,
+            montantDu: $montantDu,
+            dateEcheance: $dateEcheance,
+            updatedAt_expr: "request.time"
+        }
+    )
+}
+
+mutation annulerTaxe($id: Int!) @auth(level: USER) {
+    taxeFonciere_update(id: $id, data: { statut: ANNULE, updatedAt_expr: "request.time" })
+}
+
+mutation supprimerTaxeFonciere($id: Int!) @auth(level: USER) {
+    taxeFonciere_delete(id: $id)
+}
+# ==========================================================
+# 8. SUIVI VISUEL
+# ==========================================================
+
+mutation ajouterSuiviVisuel($parcelleId: Int!, $typeMedia: TypeMedia!, $urlStockage: String!, $latitude: Float, $longitude: Float, $uploadeParFirebaseUid: String!) @auth(level: USER) {
+  suiviVisuel_insert(data: {
+    parcelleId: $parcelleId, typeMedia: $typeMedia, urlStockage: $urlStockage,
+    latitude: $latitude, longitude: $longitude, uploadeParFirebaseUid: $uploadeParFirebaseUid
+  })
+}
+
+mutation supprimerSuiviVisuel($id: Int!) @auth(level: USER) {
+  suiviVisuel_delete(id: $id)
+}
+
+# ==========================================================
+# 9. ABONNEMENT
+# ==========================================================
+
+mutation creerAbonnement($utilisateurId: Int!, $niveau: NiveauAbonnement!, $dateDebut: Date!, $dateFin: Date!) @auth(level: USER) {
+  abonnement_insert(data: { utilisateurId: $utilisateurId, niveau: $niveau, dateDebut: $dateDebut, dateFin: $dateFin })
+}
+
+mutation renouvelerAbonnement($id: Int!, $dateFin: Date!) @auth(level: USER) {
+  abonnement_update(id: $id, data: { dateFin: $dateFin, statut: ACTIF, updatedAt_expr: "request.time" })
+}
+
+mutation annulerAbonnement($id: Int!) @auth(level: USER) {
+  abonnement_update(id: $id, data: { statut: ANNULE, updatedAt_expr: "request.time" })
+}
+
+mutation mettreAJourAbonnement(
+    $id: Int!,
+    $niveau: NiveauAbonnement,
+    $dateDebut: Date,
+    $dateFin: Date
+) @auth(level: USER) {
+    abonnement_update(
+        id: $id,
+        data: {
+            niveau: $niveau,
+            dateDebut: $dateDebut,
+            dateFin: $dateFin,
+            updatedAt_expr: "request.time"
+        }
+    )
+}
+
+mutation supprimerAbonnement($id: Int!) @auth(level: USER) {
+    abonnement_delete(id: $id)
+}
+# ==========================================================
+# 10. PAIEMENT
+# ==========================================================
+
+mutation enregistrerPaiement(
+  $utilisateurId: Int!, $taxeFonciereId: Int, $abonnementId: Int, $fraisEnregistrementId: Int,
+  $methodePaiement: MethodePaiement!, $montant: Float!, $referenceTransaction: String
+) @auth(level: USER) {
+  paiement_insert(data: {
+    utilisateurId: $utilisateurId, taxeFonciereId: $taxeFonciereId, abonnementId: $abonnementId,
+    fraisEnregistrementId: $fraisEnregistrementId, methodePaiement: $methodePaiement,
+    montant: $montant, referenceTransaction: $referenceTransaction
+  })
+}
+
+mutation confirmerPaiement($id: Int!) @auth(level: USER) {
+  paiement_update(id: $id, data: { statut: PAYE, updatedAt_expr: "request.time" })
+}
+
+mutation confirmerPaiementTaxe($id: Int!, $taxeFonciereId: Int!) @auth(level: USER) {
+    paiement_update(id: $id, data: { statut: PAYE, updatedAt_expr: "request.time" })
+    taxeFonciere_update(id: $taxeFonciereId, data: { statut: PAYE, updatedAt_expr: "request.time" })
+}
+
+mutation confirmerPaiementAbonnement($id: Int!, $abonnementId: Int!) @auth(level: USER) {
+    paiement_update(id: $id, data: { statut: PAYE, updatedAt_expr: "request.time" })
+    abonnement_update(id: $abonnementId, data: { statut: ACTIF, updatedAt_expr: "request.time" })
+}
+
+mutation annulerPaiement($id: Int!) @auth(level: USER) {
+  paiement_update(id: $id, data: { statut: ANNULE, updatedAt_expr: "request.time" })
+}
+
+# ==========================================================
+# 11. ALERTE
+# ==========================================================
+
+mutation creerAlerte($utilisateurId: Int!, $parcelleId: Int, $typeAlerte: TypeAlerte!, $message: String!) @auth(level: USER) {
+  alerte_insert(data: { utilisateurId: $utilisateurId, parcelleId: $parcelleId, typeAlerte: $typeAlerte, message: $message })
+}
+
+mutation marquerAlerteLue($id: Int!) @auth(level: USER) {
+  alerte_update(id: $id, data: { lue: true })
+}
+
+mutation supprimerAlerte($id: Int!) @auth(level: USER) {
+  alerte_delete(id: $id)
+}
+
+# ==========================================================
+# 12. LITIGE
+# ==========================================================
+
+mutation signalerLitige($parcelleId: Int!, $plaignantId: Int!, $motif: String!, $transactionFonciereId: Int) @auth(level: USER) {
+  litige_insert(data: { parcelleId: $parcelleId, plaignantId: $plaignantId, motif: $motif, transactionFonciereId: $transactionFonciereId })
+}
+
+mutation passerLitigeEnExamen($id: Int!) @auth(level: USER) {
+  litige_update(id: $id, data: { statut: EN_COURS_EXAMEN, updatedAt_expr: "request.time" })
+}
+
+mutation resoudreLitige($id: Int!, $resolution: String!) @auth(level: USER) {
+  litige_update(id: $id, data: { statut: RESOLU, resolution: $resolution, updatedAt_expr: "request.time" })
+}
+
+mutation rejeterLitige($id: Int!, $resolution: String!) @auth(level: USER) {
+  litige_update(id: $id, data: { statut: REJETE, resolution: $resolution, updatedAt_expr: "request.time" })
+}
+
+mutation supprimerLitige($id: Int!) @auth(level: USER) {
+    litige_delete(id: $id)
+}
+
+# ==========================================================
+# 13. FRAIS D'ENREGISTREMENT
+# ==========================================================
+
+mutation creerFraisEnregistrement($parcelleId: Int!, $typeFrais: TypeFrais!, $montant: Float!) @auth(level: USER) {
+  fraisEnregistrement_insert(data: { parcelleId: $parcelleId, typeFrais: $typeFrais, montant: $montant })
+}
+
+mutation marquerFraisPaye($id: Int!) @auth(level: USER) {
+  fraisEnregistrement_update(id: $id, data: { statut: PAYE, updatedAt_expr: "request.time" })
+}
+
+mutation annulerFrais($id: Int!, $motifRejet: String!) @auth(level: USER) {
+    fraisEnregistrement_update(
+        id: $id,
+        data: { statut: ANNULE, motifRejet: $motifRejet, updatedAt_expr: "request.time" }
+    )
+}
+
+mutation rejeterFrais($id: Int!, $motifRejet: String!) @auth(level: USER) {
+    fraisEnregistrement_update(
+        id: $id,
+        data: { statut: REJETE, motifRejet: $motifRejet, updatedAt_expr: "request.time" }
+    )
+}
+
+mutation supprimerFraisEnregistrement($id: Int!) @auth(level: USER) {
+    fraisEnregistrement_delete(id: $id)
+}
